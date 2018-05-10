@@ -7,7 +7,7 @@
   background-color: transparent;
 }
 
-@media 
+
 
 
 /* row1:detail */
@@ -21,8 +21,5 @@
   top: 30px;
   left: 20px;
 }
-.ins-detail-add-to-cart input {
-  width: 65px;
-  padding-left: 10px;
-}
+
 /* row1:detail-end */
