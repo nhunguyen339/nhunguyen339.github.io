@@ -1,0 +1,7 @@
+.ins-shopping-cart table td, th {
+	padding: 16px;
+
+}
+.ins-shopping-cart table tr {
+	border-top: 1px solid #eee;
+}
