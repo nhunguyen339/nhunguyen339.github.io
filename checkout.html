@@ -31,7 +31,7 @@
     </ul> 
     <ul class="list-unstyled mb-0 float-right position-relative">
       <li class="nav-item  float-left navbar-text border-right pr-4 d-flex align-items-center  ">
-        <a href="" class="pr-1 py-0 ins-a-brand"><i class="material-icons">account_circle</i></a><small><a href="" class="nav-link ins-a-brand px-0 my-0">My Account</a> </small>
+        <a href="login.html" class="pr-1 py-0 ins-a-brand"><i class="material-icons">account_circle</i></a><small><a href="login.html" class="nav-link ins-a-brand px-0 my-0">My Account</a> </small>
       </li>
       <li class="nav-item  float-left navbar-text  ml-4 d-flex align-items-center ">
         <small><a href="cart.html" class="nav-link ins-a-brand px-0 my-0">Cart</a> </small><a href="cart.html" class="pl-1 my-0 ins-a-brand"><i class="material-icons">shopping_cart</i></a> 
@@ -313,37 +313,78 @@
                                             <td>Best Way</td>
                                         </tr>
                                     </table>
+                                    <button class="btn ins-btn-outline-brand float-right mt-4">Continue</button>
                                 </section>
                             </div>
                         </li>
                         <li class="ins-pb">
                             <h5 class="mb-0">
                                 <button class="btn btn-link p-0 mb-4 ins-a-brand" data-toggle="collapse" data-target="#reviewPayment" aria-expanded="true" aria-controls="collapseOne">
-                                  <h5>4 Review & Payment</h5>
+                                  <h5>4 Payment & Review</h5>
                                 </button>
                             </h5>
-                            <div id="reviewPayment" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div id="reviewPayment"  class="collapse" aria-labelledby="reviewPayment" data-parent="#accordion">
                                 <section class="clearfix">
-                                    <table>
+                                    <table id="payment" class="payment">
                                         <tr>
-                                            <th></th>
-                                            <th>Price</th>
-                                            <th>Method</th>
-                                            <th>Carrier</th>
+                                            <td>
+                                                <input type="radio" name="payement" data-toggle="collapse" data-target="#payByCheck" aria-expanded="true" aria-controls="payByCheck"> 
+                                            </td>
+                                            <td>Pay by Check</td>
+                                            
                                         </tr>
                                         <tr>
-                                            <td><input type="radio" name="shippingMethod"></td>
-                                            <td>$15</td>
-                                            <td>Table Rate</td>
-                                            <td>Best Way</td>
+                                            <td></td>
+                                            <td  id="payByCheck" class="collapse" aria-labelledby="payByCheck" data-parent="#payment">
+                                                    <table class="ins payment-by-check ">
+                                                            <tr>
+                                                                <td>
+                                                                   Amount
+                                                                </td>
+                                                                <td>
+                                                                   $26.12 (tax incl.)
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                   Payee
+                                                                </td>
+                                                                <td>
+                                                                   <input type="text">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                   Send your check to this address
+                                                                </td>
+                                                                <td>
+                                                                   <input type="text">
+                                                                </td>
+                                                            </tr>
+                                                        </table> 
+                                            </td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td><input type="radio" name="shippingMethod"></td>
-                                            <td>$4.00</td>
-                                            <td>Table Rate</td>
-                                            <td>Best Way</td>
+                                            <td>
+                                                <input type="radio" name="payement" data-toggle="collapse" data-target="#payByBank" aria-expanded="true" aria-controls="payByBank"> 
+                                            </td>
+                                            <td>Pay by Bank</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td id="payByBank" class="collapse" aria-labelledby="payByBank" data-parent="#payment">
+                                                <p>Please transfer the invoice amount to our bank account. You will receive our order confirmation by email containing bank details and order number. Goods will be reserved 7 days for you and we'll process the order immediately after receiving the payment.</p>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td>I agree to the terms of service and will adhere to them unconditionally.</td>
                                         </tr>
                                     </table>
+                                    <button class="btn ins-btn-outline-brand float-right mt-4"><b>ORDER WITH AN OBLIGATION TO PAY</b></button>
                                 </section>
                             </div>
                         </li>
@@ -368,7 +409,6 @@
                             <span><h5>$65.23</h5></span>
                         </li>
                     </ul>
-                    <div class="d-flex justify-content-center mb-4"><a href="checkout.html"><button class="btn ins-btn-outline-brand">Check out</button></a></div>
                 </div>
                 <div class="my-4">
                     <span class="mt-3 d-flex align-items-center">
