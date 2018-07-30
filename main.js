@@ -305,11 +305,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cart_cart_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cart/cart.component */ "./src/app/cart/cart.component.ts");
 /* harmony import */ var _contact_contact_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./contact/contact.component */ "./src/app/contact/contact.component.ts");
 /* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
-/* harmony import */ var _nav_search_search_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./nav/search/search.component */ "./src/app/nav/search/search.component.ts");
-/* harmony import */ var _add_genre_add_genre_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./add-genre/add-genre.component */ "./src/app/add-genre/add-genre.component.ts");
-/* harmony import */ var _models_login_logout_auth_guard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./models/login-logout/auth.guard */ "./src/app/models/login-logout/auth.guard.ts");
-/* harmony import */ var _login_new_custumer_new_custumer_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./login/new-custumer/new-custumer.component */ "./src/app/login/new-custumer/new-custumer.component.ts");
-/* harmony import */ var _login_registered_custumer_registered_custumer_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./login/registered-custumer/registered-custumer.component */ "./src/app/login/registered-custumer/registered-custumer.component.ts");
+/* harmony import */ var _models_login_logout_auth_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./models/login-logout/auth.guard */ "./src/app/models/login-logout/auth.guard.ts");
+/* harmony import */ var _login_new_custumer_new_custumer_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./login/new-custumer/new-custumer.component */ "./src/app/login/new-custumer/new-custumer.component.ts");
+/* harmony import */ var _login_registered_custumer_registered_custumer_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./login/registered-custumer/registered-custumer.component */ "./src/app/login/registered-custumer/registered-custumer.component.ts");
+/* harmony import */ var _checkout_payment_success_payment_success_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./checkout/payment-success/payment-success.component */ "./src/app/checkout/payment-success/payment-success.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -329,27 +328,24 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
 var routes = [
     { path: '', redirectTo: '/homepage', pathMatch: 'full' },
     { path: 'homepage', component: _homepage_homepage_component__WEBPACK_IMPORTED_MODULE_2__["HomepageComponent"] },
     { path: 'category', component: _category_category_component__WEBPACK_IMPORTED_MODULE_3__["CategoryComponent"] },
-    // { path: 'books/category/:_id', component: CategoryFilterComponent },
     { path: 'detail/:_id', component: _product_detail_product_detail_component__WEBPACK_IMPORTED_MODULE_4__["ProductDetailComponent"] },
-    { path: 'checkout', component: _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_5__["CheckoutComponent"], canActivate: [_models_login_logout_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]] },
-    { path: 'cart', component: _cart_cart_component__WEBPACK_IMPORTED_MODULE_6__["CartComponent"] },
-    { path: 'registered-custumer', component: _login_registered_custumer_registered_custumer_component__WEBPACK_IMPORTED_MODULE_13__["RegisteredCustumerComponent"] },
-    { path: 'contact', component: _contact_contact_component__WEBPACK_IMPORTED_MODULE_7__["ContactComponent"] },
-    { path: 'search', component: _nav_search_search_component__WEBPACK_IMPORTED_MODULE_9__["SearchComponent"] },
-    // { path: ':category/:subcategory/:_id', component: ProductDetailComponent },
-    // { path: ':category/:subcategory', component: CategoryComponent },
-    // { path: ':category/:_id', component: ProductDetailComponent },
-    { path: 'add-genre', component: _add_genre_add_genre_component__WEBPACK_IMPORTED_MODULE_10__["AddGenreComponent"] },
     {
-        path: 'account', canActivate: [_models_login_logout_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]],
+        path: 'checkout', component: _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_5__["CheckoutComponent"], children: [{
+                path: 'payment-success', component: _checkout_payment_success_payment_success_component__WEBPACK_IMPORTED_MODULE_12__["PaymentSuccessComponent"]
+            }], canActivate: [_models_login_logout_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
+    },
+    { path: 'cart', component: _cart_cart_component__WEBPACK_IMPORTED_MODULE_6__["CartComponent"] },
+    { path: 'registered-custumer', component: _login_registered_custumer_registered_custumer_component__WEBPACK_IMPORTED_MODULE_11__["RegisteredCustumerComponent"] },
+    { path: 'contact', component: _contact_contact_component__WEBPACK_IMPORTED_MODULE_7__["ContactComponent"] },
+    {
+        path: 'account', canActivate: [_models_login_logout_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]],
         loadChildren: './login/account/account-routing/account-routing.module#AccountRoutingModule'
     },
-    { path: 'new-custumer', component: _login_new_custumer_new_custumer_component__WEBPACK_IMPORTED_MODULE_12__["NewCustumerComponent"] },
+    { path: 'new-custumer', component: _login_new_custumer_new_custumer_component__WEBPACK_IMPORTED_MODULE_10__["NewCustumerComponent"] },
     { path: '**', component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_8__["PageNotFoundComponent"] },
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -357,7 +353,7 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes, { preloadingStrategy: _angular_router__WEBPACK_IMPORTED_MODULE_1__["PreloadAllModules"] }),],
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes),],
             exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
         })
     ], AppRoutingModule);
@@ -465,34 +461,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _block_template_product_block_template_product_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./block-template-product/block-template-product.component */ "./src/app/block-template-product/block-template-product.component.ts");
 /* harmony import */ var _pagination_pagination_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./pagination/pagination.component */ "./src/app/pagination/pagination.component.ts");
 /* harmony import */ var _cart_cart_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./cart/cart.component */ "./src/app/cart/cart.component.ts");
-/* harmony import */ var _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./checkout/checkout.component */ "./src/app/checkout/checkout.component.ts");
-/* harmony import */ var _cart_list_product_cart_list_product_cart_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./cart/list-product-cart/list-product-cart.component */ "./src/app/cart/list-product-cart/list-product-cart.component.ts");
-/* harmony import */ var _total_cart_total_cart_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./total-cart/total-cart.component */ "./src/app/total-cart/total-cart.component.ts");
-/* harmony import */ var _list_item_policy_list_item_policy_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./list-item-policy/list-item-policy.component */ "./src/app/list-item-policy/list-item-policy.component.ts");
-/* harmony import */ var _checkout_checkout_product_checkout_product_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./checkout/checkout-product/checkout-product.component */ "./src/app/checkout/checkout-product/checkout-product.component.ts");
-/* harmony import */ var _checkout_checkout_product_personal_information_personal_information_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./checkout/checkout-product/personal-information/personal-information.component */ "./src/app/checkout/checkout-product/personal-information/personal-information.component.ts");
-/* harmony import */ var _checkout_checkout_product_addresses_addresses_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./checkout/checkout-product/addresses/addresses.component */ "./src/app/checkout/checkout-product/addresses/addresses.component.ts");
-/* harmony import */ var _checkout_checkout_product_shipping_methods_shipping_methods_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./checkout/checkout-product/shipping-methods/shipping-methods.component */ "./src/app/checkout/checkout-product/shipping-methods/shipping-methods.component.ts");
-/* harmony import */ var _checkout_checkout_product_payment_review_payment_review_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./checkout/checkout-product/payment-review/payment-review.component */ "./src/app/checkout/checkout-product/payment-review/payment-review.component.ts");
-/* harmony import */ var _login_new_custumer_new_custumer_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./login/new-custumer/new-custumer.component */ "./src/app/login/new-custumer/new-custumer.component.ts");
-/* harmony import */ var _login_registered_custumer_registered_custumer_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./login/registered-custumer/registered-custumer.component */ "./src/app/login/registered-custumer/registered-custumer.component.ts");
-/* harmony import */ var _contact_contact_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./contact/contact.component */ "./src/app/contact/contact.component.ts");
-/* harmony import */ var _product_detail_review_modal_review_modal_review_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./product-detail/review/modal-review/modal-review.component */ "./src/app/product-detail/review/modal-review/modal-review.component.ts");
-/* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
-/* harmony import */ var _models_book_service__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./models/book.service */ "./src/app/models/book.service.ts");
-/* harmony import */ var _models_genre_service__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./models/genre.service */ "./src/app/models/genre.service.ts");
-/* harmony import */ var _models_banner_service__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./models/banner.service */ "./src/app/models/banner.service.ts");
-/* harmony import */ var _nav_search_search_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./nav/search/search.component */ "./src/app/nav/search/search.component.ts");
-/* harmony import */ var _add_genre_add_genre_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./add-genre/add-genre.component */ "./src/app/add-genre/add-genre.component.ts");
-/* harmony import */ var _models_login_logout_auth_guard__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./models/login-logout/auth.guard */ "./src/app/models/login-logout/auth.guard.ts");
-/* harmony import */ var _models_login_logout_authentication_service__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./models/login-logout/authentication.service */ "./src/app/models/login-logout/authentication.service.ts");
-/* harmony import */ var _models_login_logout_user_service__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./models/login-logout/user.service */ "./src/app/models/login-logout/user.service.ts");
-/* harmony import */ var _models_login_logout_jwt_interceptor__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./models/login-logout/jwt.interceptor */ "./src/app/models/login-logout/jwt.interceptor.ts");
-/* harmony import */ var _models_login_logout_login_status_service__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./models/login-logout/login-status.service */ "./src/app/models/login-logout/login-status.service.ts");
-/* harmony import */ var _app_custom_app_custom_module__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./app-custom/app-custom.module */ "./src/app/app-custom/app-custom.module.ts");
-/* harmony import */ var _models_cart_shopping_cart_service__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./models/cart/shopping-cart.service */ "./src/app/models/cart/shopping-cart.service.ts");
-/* harmony import */ var _nav_nav_list_cart_nav_list_cart_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./nav/nav-list-cart/nav-list-cart.component */ "./src/app/nav/nav-list-cart/nav-list-cart.component.ts");
-/* harmony import */ var _models_cart_order_service__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./models/cart/order.service */ "./src/app/models/cart/order.service.ts");
+/* harmony import */ var _cart_list_product_cart_list_product_cart_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./cart/list-product-cart/list-product-cart.component */ "./src/app/cart/list-product-cart/list-product-cart.component.ts");
+/* harmony import */ var _total_cart_total_cart_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./total-cart/total-cart.component */ "./src/app/total-cart/total-cart.component.ts");
+/* harmony import */ var _list_item_policy_list_item_policy_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./list-item-policy/list-item-policy.component */ "./src/app/list-item-policy/list-item-policy.component.ts");
+/* harmony import */ var _checkout_checkout_product_checkout_product_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./checkout/checkout-product/checkout-product.component */ "./src/app/checkout/checkout-product/checkout-product.component.ts");
+/* harmony import */ var _checkout_checkout_product_personal_information_personal_information_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./checkout/checkout-product/personal-information/personal-information.component */ "./src/app/checkout/checkout-product/personal-information/personal-information.component.ts");
+/* harmony import */ var _checkout_checkout_product_addresses_addresses_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./checkout/checkout-product/addresses/addresses.component */ "./src/app/checkout/checkout-product/addresses/addresses.component.ts");
+/* harmony import */ var _checkout_checkout_product_shipping_methods_shipping_methods_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./checkout/checkout-product/shipping-methods/shipping-methods.component */ "./src/app/checkout/checkout-product/shipping-methods/shipping-methods.component.ts");
+/* harmony import */ var _login_new_custumer_new_custumer_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./login/new-custumer/new-custumer.component */ "./src/app/login/new-custumer/new-custumer.component.ts");
+/* harmony import */ var _login_registered_custumer_registered_custumer_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./login/registered-custumer/registered-custumer.component */ "./src/app/login/registered-custumer/registered-custumer.component.ts");
+/* harmony import */ var _contact_contact_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./contact/contact.component */ "./src/app/contact/contact.component.ts");
+/* harmony import */ var _product_detail_review_modal_review_modal_review_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./product-detail/review/modal-review/modal-review.component */ "./src/app/product-detail/review/modal-review/modal-review.component.ts");
+/* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
+/* harmony import */ var _models_book_service__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./models/book.service */ "./src/app/models/book.service.ts");
+/* harmony import */ var _models_genre_service__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./models/genre.service */ "./src/app/models/genre.service.ts");
+/* harmony import */ var _models_banner_service__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./models/banner.service */ "./src/app/models/banner.service.ts");
+/* harmony import */ var _nav_search_search_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./nav/search/search.component */ "./src/app/nav/search/search.component.ts");
+/* harmony import */ var _add_genre_add_genre_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./add-genre/add-genre.component */ "./src/app/add-genre/add-genre.component.ts");
+/* harmony import */ var _models_login_logout_auth_guard__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./models/login-logout/auth.guard */ "./src/app/models/login-logout/auth.guard.ts");
+/* harmony import */ var _models_login_logout_authentication_service__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./models/login-logout/authentication.service */ "./src/app/models/login-logout/authentication.service.ts");
+/* harmony import */ var _models_login_logout_user_service__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./models/login-logout/user.service */ "./src/app/models/login-logout/user.service.ts");
+/* harmony import */ var _models_login_logout_jwt_interceptor__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./models/login-logout/jwt.interceptor */ "./src/app/models/login-logout/jwt.interceptor.ts");
+/* harmony import */ var _models_login_logout_login_status_service__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./models/login-logout/login-status.service */ "./src/app/models/login-logout/login-status.service.ts");
+/* harmony import */ var _app_custom_app_custom_module__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./app-custom/app-custom.module */ "./src/app/app-custom/app-custom.module.ts");
+/* harmony import */ var _models_cart_shopping_cart_service__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./models/cart/shopping-cart.service */ "./src/app/models/cart/shopping-cart.service.ts");
+/* harmony import */ var _nav_nav_list_cart_nav_list_cart_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./nav/nav-list-cart/nav-list-cart.component */ "./src/app/nav/nav-list-cart/nav-list-cart.component.ts");
+/* harmony import */ var _models_cart_order_service__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./models/cart/order.service */ "./src/app/models/cart/order.service.ts");
+/* harmony import */ var _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./checkout/checkout.component */ "./src/app/checkout/checkout.component.ts");
+/* harmony import */ var _checkout_payment_success_payment_success_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./checkout/payment-success/payment-success.component */ "./src/app/checkout/payment-success/payment-success.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -566,7 +562,7 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-                _app_custom_app_custom_module__WEBPACK_IMPORTED_MODULE_51__["AppCustomModule"],
+                _app_custom_app_custom_module__WEBPACK_IMPORTED_MODULE_49__["AppCustomModule"],
             ],
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
@@ -590,37 +586,37 @@ var AppModule = /** @class */ (function () {
                 _block_template_product_block_template_product_component__WEBPACK_IMPORTED_MODULE_24__["BlockTemplateProductComponent"],
                 _pagination_pagination_component__WEBPACK_IMPORTED_MODULE_25__["PaginationComponent"],
                 _cart_cart_component__WEBPACK_IMPORTED_MODULE_26__["CartComponent"],
-                _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_27__["CheckoutComponent"],
-                _cart_list_product_cart_list_product_cart_component__WEBPACK_IMPORTED_MODULE_28__["ListProductCartComponent"],
-                _total_cart_total_cart_component__WEBPACK_IMPORTED_MODULE_29__["TotalCartComponent"],
-                _list_item_policy_list_item_policy_component__WEBPACK_IMPORTED_MODULE_30__["ListItemPolicyComponent"],
-                _checkout_checkout_product_checkout_product_component__WEBPACK_IMPORTED_MODULE_31__["CheckoutProductComponent"],
-                _checkout_checkout_product_personal_information_personal_information_component__WEBPACK_IMPORTED_MODULE_32__["PersonalInformationComponent"],
-                _checkout_checkout_product_addresses_addresses_component__WEBPACK_IMPORTED_MODULE_33__["AddressesComponent"],
-                _checkout_checkout_product_shipping_methods_shipping_methods_component__WEBPACK_IMPORTED_MODULE_34__["ShippingMethodsComponent"],
-                _checkout_checkout_product_payment_review_payment_review_component__WEBPACK_IMPORTED_MODULE_35__["PaymentReviewComponent"],
-                _login_new_custumer_new_custumer_component__WEBPACK_IMPORTED_MODULE_36__["NewCustumerComponent"],
-                _login_registered_custumer_registered_custumer_component__WEBPACK_IMPORTED_MODULE_37__["RegisteredCustumerComponent"],
-                _contact_contact_component__WEBPACK_IMPORTED_MODULE_38__["ContactComponent"],
-                _product_detail_review_modal_review_modal_review_component__WEBPACK_IMPORTED_MODULE_39__["ModalReviewComponent"],
-                _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_40__["PageNotFoundComponent"],
-                _nav_search_search_component__WEBPACK_IMPORTED_MODULE_44__["SearchComponent"],
-                _add_genre_add_genre_component__WEBPACK_IMPORTED_MODULE_45__["AddGenreComponent"],
-                _nav_nav_list_cart_nav_list_cart_component__WEBPACK_IMPORTED_MODULE_53__["NavListCartComponent"],
+                _cart_list_product_cart_list_product_cart_component__WEBPACK_IMPORTED_MODULE_27__["ListProductCartComponent"],
+                _total_cart_total_cart_component__WEBPACK_IMPORTED_MODULE_28__["TotalCartComponent"],
+                _list_item_policy_list_item_policy_component__WEBPACK_IMPORTED_MODULE_29__["ListItemPolicyComponent"],
+                _checkout_checkout_product_checkout_product_component__WEBPACK_IMPORTED_MODULE_30__["CheckoutProductComponent"],
+                _checkout_checkout_product_personal_information_personal_information_component__WEBPACK_IMPORTED_MODULE_31__["PersonalInformationComponent"],
+                _checkout_checkout_product_addresses_addresses_component__WEBPACK_IMPORTED_MODULE_32__["AddressesComponent"],
+                _checkout_checkout_product_shipping_methods_shipping_methods_component__WEBPACK_IMPORTED_MODULE_33__["ShippingMethodsComponent"],
+                _login_new_custumer_new_custumer_component__WEBPACK_IMPORTED_MODULE_34__["NewCustumerComponent"],
+                _login_registered_custumer_registered_custumer_component__WEBPACK_IMPORTED_MODULE_35__["RegisteredCustumerComponent"],
+                _contact_contact_component__WEBPACK_IMPORTED_MODULE_36__["ContactComponent"],
+                _checkout_checkout_component__WEBPACK_IMPORTED_MODULE_53__["CheckoutComponent"],
+                _product_detail_review_modal_review_modal_review_component__WEBPACK_IMPORTED_MODULE_37__["ModalReviewComponent"],
+                _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_38__["PageNotFoundComponent"],
+                _nav_search_search_component__WEBPACK_IMPORTED_MODULE_42__["SearchComponent"],
+                _add_genre_add_genre_component__WEBPACK_IMPORTED_MODULE_43__["AddGenreComponent"],
+                _nav_nav_list_cart_nav_list_cart_component__WEBPACK_IMPORTED_MODULE_51__["NavListCartComponent"],
+                _checkout_payment_success_payment_success_component__WEBPACK_IMPORTED_MODULE_54__["PaymentSuccessComponent"]
             ],
             providers: [
-                _models_book_service__WEBPACK_IMPORTED_MODULE_41__["BookService"],
-                _models_genre_service__WEBPACK_IMPORTED_MODULE_42__["GenreService"],
-                _models_banner_service__WEBPACK_IMPORTED_MODULE_43__["BannerService"],
-                _models_login_logout_auth_guard__WEBPACK_IMPORTED_MODULE_46__["AuthGuard"],
-                _models_login_logout_authentication_service__WEBPACK_IMPORTED_MODULE_47__["AuthenticationService"],
-                _models_login_logout_user_service__WEBPACK_IMPORTED_MODULE_48__["UserService"],
-                _models_login_logout_login_status_service__WEBPACK_IMPORTED_MODULE_50__["LoginStatusService"],
-                _models_cart_shopping_cart_service__WEBPACK_IMPORTED_MODULE_52__["ShoppingCartService"],
-                _models_cart_order_service__WEBPACK_IMPORTED_MODULE_54__["OrderService"],
+                _models_book_service__WEBPACK_IMPORTED_MODULE_39__["BookService"],
+                _models_genre_service__WEBPACK_IMPORTED_MODULE_40__["GenreService"],
+                _models_banner_service__WEBPACK_IMPORTED_MODULE_41__["BannerService"],
+                _models_login_logout_auth_guard__WEBPACK_IMPORTED_MODULE_44__["AuthGuard"],
+                _models_login_logout_authentication_service__WEBPACK_IMPORTED_MODULE_45__["AuthenticationService"],
+                _models_login_logout_user_service__WEBPACK_IMPORTED_MODULE_46__["UserService"],
+                _models_login_logout_login_status_service__WEBPACK_IMPORTED_MODULE_48__["LoginStatusService"],
+                _models_cart_shopping_cart_service__WEBPACK_IMPORTED_MODULE_50__["ShoppingCartService"],
+                _models_cart_order_service__WEBPACK_IMPORTED_MODULE_52__["OrderService"],
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
-                    useClass: _models_login_logout_jwt_interceptor__WEBPACK_IMPORTED_MODULE_49__["JwtInterceptor"],
+                    useClass: _models_login_logout_jwt_interceptor__WEBPACK_IMPORTED_MODULE_47__["JwtInterceptor"],
                     multi: true
                 }
                 // LocalStorageService
@@ -693,7 +689,6 @@ var BlockTemplateProductComponent = /** @class */ (function () {
         this.route = route;
         this.bookService = bookService;
         this.shoppingCartService = shoppingCartService;
-        this.books = [];
         this.currentItem = new _models_cart_cart_item__WEBPACK_IMPORTED_MODULE_2__["CartItem"]();
     }
     BlockTemplateProductComponent.prototype.ngOnInit = function () {
@@ -717,6 +712,10 @@ var BlockTemplateProductComponent = /** @class */ (function () {
         this.shoppingCartService.calculateTotal();
         this.shoppingCartService.calculateCounted();
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], BlockTemplateProductComponent.prototype, "filterGenres", void 0);
     BlockTemplateProductComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-block-template-product',
@@ -833,7 +832,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <app-breadcrumb></app-breadcrumb>\r\n    <div class=\"row ins-shopping-cart\">\r\n        <div class=\"col-md-8 col-12\">\r\n            <app-list-product-cart></app-list-product-cart>\r\n        </div>\r\n        <div class=\"col-md-4 col-12\">\r\n            <app-total-cart></app-total-cart>\r\n            <div class=\"d-flex justify-content-center my-4\"><a routerLink=\"/checkout\"><button class=\"btn ins-btn-outline-brand\">Check out</button></a></div>\r\n            <app-list-item-policy></app-list-item-policy>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n    <app-breadcrumb></app-breadcrumb>\r\n    <div class=\"row ins-shopping-cart\">\r\n        <div class=\"col-md-8 col-12\">\r\n            <app-list-product-cart></app-list-product-cart>\r\n        </div>\r\n        <div class=\"col-md-4 col-12\">\r\n            <app-total-cart></app-total-cart>\r\n            <div class=\"d-flex justify-content-center my-4\"><a  routerLink=\"/checkout\" ><button class=\"btn ins-btn-outline-brand\" [disabled]=\"shoppingCart.items_counted==0\">Check out</button></a></div>\r\n            <app-list-item-policy></app-list-item-policy>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -869,12 +868,15 @@ var CartComponent = /** @class */ (function () {
         var _this = this;
         this.shoppingCartService = shoppingCartService;
         this.bookService = bookService;
+        this.itemsToOrder = false;
         this.shoppingCart = new _models_cart_shopping_cart__WEBPACK_IMPORTED_MODULE_3__["ShoppingCart"]();
         shoppingCartService.totalStatus$.subscribe(function (status) {
             _this.shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'));
         });
     }
     CartComponent.prototype.ngOnInit = function () {
+        this.shoppingCartService.initCart();
+        this.shoppingCart = JSON.parse(this.shoppingCartService.getStorage());
     };
     CartComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1019,7 +1021,6 @@ module.exports = "\r\n<div class=\"ins-img-category\">\r\n  <img class=\"\"  src
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CategoryProductComponent", function() { return CategoryProductComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var _models_book__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../models/book */ "./src/app/models/book.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1030,16 +1031,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
 var CategoryProductComponent = /** @class */ (function () {
+    // @Input() filterGenres:Book[];
     function CategoryProductComponent() {
     }
     CategoryProductComponent.prototype.ngOnInit = function () {
     };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", _models_book__WEBPACK_IMPORTED_MODULE_1__["Book"])
-    ], CategoryProductComponent.prototype, "book", void 0);
     CategoryProductComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-category-product',
@@ -1073,7 +1070,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" >\r\n\r\n    <!-- .row1:breadcrumb -->\r\n    <!-- nho bo input do -->\r\n    <app-breadcrumb ></app-breadcrumb>\r\n    <!-- .row1:breadcrumb-end -->\r\n\r\n    <!-- row2: filter -->\r\n    <div class=\"row ins-filter-product\">\r\n      <div class=\"col-md-3\">\r\n        <app-filter-product [book]=\"book\"></app-filter-product>\r\n      </div>\r\n      <div class=\"col-md-9 ins-filter-product-list position-relative\">\r\n        <app-category-product [book]=\"book\"></app-category-product>\r\n      </div>\r\n    </div>\r\n    <!-- row2: filter-end -->\r\n  </div>\r\n"
+module.exports = "<div class=\"container\">\r\n\r\n  <!-- .row1:breadcrumb -->\r\n  <!-- nho bo input do -->\r\n  <app-breadcrumb></app-breadcrumb>\r\n  <!-- .row1:breadcrumb-end -->\r\n\r\n  <!-- row2: filter -->\r\n  <div class=\"row ins-filter-product\">\r\n    <div class=\"col-md-3\">\r\n      <!-- <div class=\"col-md-3\"> -->\r\n      <div class=\"ins-search-filter\">\r\n        <h5 class=\"border-bottom pb-2\">\r\n          <b>Filter By</b>\r\n        </h5>\r\n        <button type=\"button\" class=\"btn ins-bg-second text-white d-flex align-items-center mt-4\">\r\n          <i class=\"material-icons mr-2\">check</i> Clear all</button>\r\n        <section class=\"mt-4\">\r\n          <h5 class=\"border-bottom py-2\">\r\n            <b>Genres</b>\r\n          </h5>\r\n          <ul class=\"list-unstyled mt-0 pl-0\">\r\n            <li *ngFor=\"let genre of genres\">\r\n              <a class=\"ins-a-brand\" (click)=\"filteredGenres(genre._id)\">{{genre.name}}</a>\r\n            </li>\r\n          </ul>\r\n        </section>\r\n        <section class=\"mt-4\">\r\n          <h5 class=\"border-bottom py-2\">\r\n            <b>Publisher</b>\r\n          </h5>\r\n          <ul class=\"list-unstyled mt-0 pl-0\">\r\n            <li *ngFor=\"let book of books$ | async\">\r\n              <a class=\"ins-a-brand\">{{book.publisher}}</a>\r\n            </li>\r\n          </ul>\r\n        </section>\r\n        <section class=\"pt-4\">\r\n          <h5 class=\"border-bottom py-2\">\r\n            <b>Price</b>\r\n          </h5>\r\n          <div class=\"input-group\">\r\n            <ul class=\"list-unstyled mb-0\">\r\n              <li>\r\n                <input class=\"p-2\" type=\"radio\" name=\"price\">\r\n                <label for=\"\">\r\n                  <a href=\"\" class=\"ins-a-brand\">$8.00 - $11.00 (3)</a>\r\n                </label>\r\n              </li>\r\n              <li>\r\n                <input class=\"p-2\" type=\"radio\" name=\"price\">\r\n                <label for=\"\">\r\n                  <a href=\"\" class=\"ins-a-brand\">$12.00 - $15.00 (3)</a>\r\n                </label>\r\n              </li>\r\n              <li>\r\n                <input class=\"p-2\" type=\"radio\" name=\"price\">\r\n                <label for=\"\">\r\n                  <a href=\"\" class=\"ins-a-brand\">$29.00 - $35.00 (3)</a>\r\n                </label>\r\n              </li>\r\n            </ul>\r\n          </div>\r\n        </section>\r\n      </div>\r\n      <!-- </div> -->\r\n\r\n    </div>\r\n    <div class=\"col-md-9 ins-filter-product-list position-relative\">\r\n      <app-category-product ></app-category-product>\r\n    </div>\r\n  </div>\r\n  <!-- row2: filter-end -->\r\n</div>"
 
 /***/ }),
 
@@ -1091,6 +1088,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_book_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/book.service */ "./src/app/models/book.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var _models_genre_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/genre.service */ "./src/app/models/genre.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1104,6 +1102,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var CategoryComponent = /** @class */ (function () {
     function CategoryComponent(bookService, route, genreService) {
         this.bookService = bookService;
@@ -1111,17 +1110,27 @@ var CategoryComponent = /** @class */ (function () {
         this.genreService = genreService;
     }
     CategoryComponent.prototype.ngOnInit = function () {
+        this.getGenres();
+        this.getBooks();
     };
-    CategoryComponent.prototype.getBook = function () {
-        var id;
-        id = this.route.snapshot.paramMap.get('_id');
-    };
-    CategoryComponent.prototype.getGenre = function () {
+    CategoryComponent.prototype.getGenres = function () {
         var _this = this;
-        var id;
-        id = this.route.snapshot.paramMap.get('_id');
-        this.genreService.getGenre(id)
-            .subscribe(function (genre) { return _this.genre = genre; });
+        this.genreService.getGenres()
+            .subscribe(function (genres) { return _this.genres = genres; });
+    };
+    CategoryComponent.prototype.getBooks = function () {
+        var _this = this;
+        this.books$ = this.route.paramMap.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (params) {
+            return _this.bookService.getBooks();
+        }));
+    };
+    // to use for filteredGenres() because books$ can't filter
+    CategoryComponent.prototype.getBooks_ = function () {
+        var _this = this;
+        this.bookService.getBooks().subscribe(function (_) { return _this.books = _; });
+    };
+    CategoryComponent.prototype.filteredGenres = function (genre) {
+        this.filterGenres = this.books.filter(function (_) { return _.genre._id = genre._id; });
     };
     CategoryComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1158,7 +1167,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div class=\"col-md-3\"> -->\r\n    <div class=\"ins-search-filter\">\r\n      <h5 class=\"border-bottom pb-2\"><b>Filter By</b></h5>\r\n      <button type=\"button\" class=\"btn ins-bg-second text-white d-flex align-items-center mt-4\"><i class=\"material-icons mr-2\">check</i> Clear all</button>\r\n      <section class=\"mt-4\" >\r\n          <h5 class=\"border-bottom py-2\"><b>Genres</b></h5>\r\n        <ul class=\"list-unstyled mt-0 pl-0\">\r\n          <li *ngFor=\"let genre of genres\">\r\n            <a class=\"ins-a-brand\">{{genre.name}}</a>\r\n          </li>\r\n        </ul>\r\n      </section>\r\n      <section class=\"pt-4\">\r\n        <h5 class=\"border-bottom py-2\"><b>Color</b></h5>\r\n        <div class=\"input-group\">\r\n          <ul class=\"list-unstyled mb-0\">\r\n            <li>\r\n              <input class=\"p-2\" type=\"radio\" name=\"color\" >\r\n              <label for=\"\"><a href=\"\" class=\"ins-a-brand\">White</a></label>\r\n            </li>\r\n            <li>\r\n              <input class=\"p-2\" type=\"radio\" name=\"color\">\r\n              <label for=\"\"><a href=\"\" class=\"ins-a-brand\">Black</a></label>\r\n            </li>\r\n          </ul>\r\n        </div>\r\n      </section>\r\n      <section class=\"pt-4\">\r\n        <h5 class=\"border-bottom py-2\"><b>Price</b></h5>\r\n        <div class=\"input-group\">\r\n          <ul class=\"list-unstyled mb-0\">\r\n            <li>\r\n              <input class=\"p-2\" type=\"radio\" name=\"price\">\r\n              <label for=\"\"><a href=\"\" class=\"ins-a-brand\">$8.00 - $11.00 (3)</a></label>\r\n            </li>\r\n            <li>\r\n              <input class=\"p-2\" type=\"radio\" name=\"price\">\r\n              <label for=\"\"><a href=\"\" class=\"ins-a-brand\">$12.00 - $15.00 (3)</a></label>\r\n            </li>\r\n            <li>\r\n              <input class=\"p-2\" type=\"radio\" name=\"price\" >\r\n              <label for=\"\"><a href=\"\" class=\"ins-a-brand\">$29.00 - $35.00 (3)</a></label>\r\n            </li>\r\n          </ul>\r\n        </div>\r\n      </section>\r\n    </div>\r\n  <!-- </div> -->\r\n"
+module.exports = "    <!-- <div class=\"ins-search-filter\">\r\n      <h5 class=\"border-bottom pb-2\"><b>Filter By</b></h5>\r\n      <button type=\"button\" class=\"btn ins-bg-second text-white d-flex align-items-center mt-4\"><i class=\"material-icons mr-2\">check</i> Clear all</button>\r\n      <section class=\"mt-4\" >\r\n          <h5 class=\"border-bottom py-2\"><b>Genres</b></h5>\r\n        <ul class=\"list-unstyled mt-0 pl-0\">\r\n          <li *ngFor=\"let genre of genres\">\r\n            <a class=\"ins-a-brand\" (click)=\"filteredGenres(genre._id)\">{{genre.name}}</a>\r\n          </li>\r\n        </ul>\r\n      </section>\r\n      <section class=\"mt-4\" >\r\n          <h5 class=\"border-bottom py-2\"><b>Publisher</b></h5>\r\n        <ul class=\"list-unstyled mt-0 pl-0\">\r\n          <li *ngFor=\"let book of books$ | async\">\r\n            <a class=\"ins-a-brand\">{{book.publisher}}</a>\r\n          </li>\r\n        </ul>\r\n      </section>\r\n      <section class=\"pt-4\">\r\n        <h5 class=\"border-bottom py-2\"><b>Price</b></h5>\r\n        <div class=\"input-group\">\r\n          <ul class=\"list-unstyled mb-0\">\r\n            <li>\r\n              <input class=\"p-2\" type=\"radio\" name=\"price\">\r\n              <label for=\"\"><a href=\"\" class=\"ins-a-brand\">$8.00 - $11.00 (3)</a></label>\r\n            </li>\r\n            <li>\r\n              <input class=\"p-2\" type=\"radio\" name=\"price\">\r\n              <label for=\"\"><a href=\"\" class=\"ins-a-brand\">$12.00 - $15.00 (3)</a></label>\r\n            </li>\r\n            <li>\r\n              <input class=\"p-2\" type=\"radio\" name=\"price\" >\r\n              <label for=\"\"><a href=\"\" class=\"ins-a-brand\">$29.00 - $35.00 (3)</a></label>\r\n            </li>\r\n          </ul>\r\n        </div>\r\n      </section>\r\n    </div> -->\r\n"
 
 /***/ }),
 
@@ -1173,8 +1182,10 @@ module.exports = "<!-- <div class=\"col-md-3\"> -->\r\n    <div class=\"ins-sear
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilterProductComponent", function() { return FilterProductComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var _models_book__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../models/book */ "./src/app/models/book.ts");
-/* harmony import */ var _models_genre_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/genre.service */ "./src/app/models/genre.service.ts");
+/* harmony import */ var _models_genre_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../models/genre.service */ "./src/app/models/genre.service.ts");
+/* harmony import */ var _models_book_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/book.service */ "./src/app/models/book.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/esm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1187,29 +1198,46 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var FilterProductComponent = /** @class */ (function () {
-    function FilterProductComponent(genreService) {
+    function FilterProductComponent(genreService, bookService, route) {
         this.genreService = genreService;
+        this.bookService = bookService;
+        this.route = route;
     }
     FilterProductComponent.prototype.ngOnInit = function () {
         this.getGenres();
+        this.getBooks();
     };
     FilterProductComponent.prototype.getGenres = function () {
         var _this = this;
         this.genreService.getGenres()
             .subscribe(function (genres) { return _this.genres = genres; });
     };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", _models_book__WEBPACK_IMPORTED_MODULE_1__["Book"])
-    ], FilterProductComponent.prototype, "book", void 0);
+    FilterProductComponent.prototype.getBooks = function () {
+        var _this = this;
+        this.books$ = this.route.paramMap.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(function (params) {
+            return _this.bookService.getBooks();
+        }));
+    };
+    // to use for filteredGenres() because books$ can't filter
+    FilterProductComponent.prototype.getBooks_ = function () {
+        var _this = this;
+        this.bookService.getBooks().subscribe(function (_) { return _this.books = _; });
+    };
+    FilterProductComponent.prototype.filteredGenres = function (genre) {
+        this.filterGenres = this.books.filter(function (_) { return _.genre._id = genre._id; });
+    };
     FilterProductComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-filter-product',
             template: __webpack_require__(/*! ./filter-product.component.html */ "./src/app/category/filter-product/filter-product.component.html"),
             styles: [__webpack_require__(/*! ./filter-product.component.css */ "./src/app/category/filter-product/filter-product.component.css")]
         }),
-        __metadata("design:paramtypes", [_models_genre_service__WEBPACK_IMPORTED_MODULE_2__["GenreService"]])
+        __metadata("design:paramtypes", [_models_genre_service__WEBPACK_IMPORTED_MODULE_1__["GenreService"],
+            _models_book_service__WEBPACK_IMPORTED_MODULE_2__["BookService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
     ], FilterProductComponent);
     return FilterProductComponent;
 }());
@@ -1362,7 +1390,7 @@ module.exports = "table td, th {\r\n\tpadding: 16px;\r\n\r\n}\r\n table tr {\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4 class=\" ins-bg-second text-white p-2 mb-0\">Checkout</h4>\r\n<div id=\"accordion\">\r\n    <ul class=\"list-unstyled\">\r\n        <li class=\"ins-pb\">\r\n            <app-personal-information></app-personal-information>\r\n        </li>\r\n        <li class=\"ins-pb\">\r\n            <app-addresses></app-addresses>\r\n        </li>\r\n        <li class=\"ins-pb\">\r\n            <h5 class=\"mb-0\">\r\n                <button class=\"btn btn-link p-0 mb-4 ins-a-brand\" data-toggle=\"collapse\" data-target=\"#shippingMethod\" aria-expanded=\"true\"\r\n                    aria-controls=\"collapseOne\">\r\n                    <h5>3 Shipping Methods</h5>\r\n                </button>\r\n            </h5>\r\n            <div id=\"shippingMethod\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\r\n                <section class=\"clearfix\">\r\n                    <table>\r\n                        <tr>\r\n                            <th></th>\r\n                            <th>Price</th>\r\n                            <th>Method</th>\r\n                            <th>Carrier</th>\r\n                        </tr>\r\n                        <tr>\r\n                            <td>\r\n                                <input type=\"radio\" value=\"20000\" name=\"shippingMethod\">\r\n                            </td>\r\n                            <td>$15</td>\r\n                            <td>Table Rate</td>\r\n                            <td>Best Way</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td>\r\n                                <input type=\"radio\" name=\"shippingMethod\">\r\n                            </td>\r\n                            <td>$4.00</td>\r\n                            <td>Table Rate</td>\r\n                            <td>Best Way</td>\r\n                        </tr>\r\n                    </table>\r\n                    <button class=\"btn ins-btn-outline-brand float-right mt-4\">Continue</button>\r\n                </section>\r\n            </div>\r\n        </li>\r\n        <li class=\"ins-pb\">\r\n            <h5 class=\"mb-0\">\r\n                <button class=\"btn btn-link p-0 mb-4 ins-a-brand\" data-toggle=\"collapse\" data-target=\"#reviewPayment\" aria-expanded=\"true\"\r\n                    aria-controls=\"collapseOne\">\r\n                    <h5>4 Payment & Review</h5>\r\n                </button>\r\n            </h5>\r\n            <div id=\"reviewPayment\" class=\"collapse\" aria-labelledby=\"reviewPayment\" data-parent=\"#accordion\">\r\n                <section class=\"clearfix\">\r\n                    <table id=\"payment\" class=\"payment\">\r\n                        <tr>\r\n                            <td>\r\n                                <input type=\"radio\" name=\"payement\" data-toggle=\"collapse\" data-target=\"#payByCheck\" aria-expanded=\"true\" aria-controls=\"payByCheck\">\r\n                            </td>\r\n                            <td>Pay by Check</td>\r\n\r\n                        </tr>\r\n                        <tr>\r\n                            <td></td>\r\n                            <td id=\"payByCheck\" class=\"collapse\" aria-labelledby=\"payByCheck\" data-parent=\"#payment\">\r\n                                <table class=\"ins payment-by-check \">\r\n                                    <tr>\r\n                                        <td>\r\n                                            Amount\r\n                                        </td>\r\n                                        <td>\r\n                                            $26.12 (tax incl.)\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>\r\n                                            Payee\r\n                                        </td>\r\n                                        <td>\r\n                                            <input type=\"text\">\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>\r\n                                            Send your check to this address\r\n                                        </td>\r\n                                        <td>\r\n                                            <input type=\"text\">\r\n                                        </td>\r\n                                    </tr>\r\n                                </table>\r\n                            </td>\r\n                            <td></td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td>\r\n                                <input type=\"radio\" name=\"payement\" data-toggle=\"collapse\" data-target=\"#payByBank\" aria-expanded=\"true\" aria-controls=\"payByBank\">\r\n                            </td>\r\n                            <td>Pay by Bank</td>\r\n\r\n                        </tr>\r\n                        <tr>\r\n                            <td></td>\r\n                            <td id=\"payByBank\" class=\"collapse\" aria-labelledby=\"payByBank\" data-parent=\"#payment\">\r\n                                <p>Please transfer the invoice amount to our bank account. You will receive our order confirmation\r\n                                    by email containing bank details and order number. Goods will be reserved 7 days for\r\n                                    you and we'll process the order immediately after receiving the payment.</p>\r\n                            </td>\r\n                            <td></td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td>\r\n                                <input type=\"checkbox\">\r\n                            </td>\r\n                            <td>I agree to the terms of service and will adhere to them unconditionally.</td>\r\n                        </tr>\r\n                    </table>\r\n                    <button (click)=\"ordered()\" class=\"btn ins-btn-outline-brand float-right mt-4\">\r\n                        <b>ORDER WITH AN OBLIGATION TO PAY</b>\r\n                    </button>\r\n                </section>\r\n            </div>\r\n        </li>\r\n    </ul>\r\n</div>"
+module.exports = "<div [formGroup]=\"checkoutForm\" #formCheckout=\"ngForm\">\r\n    <div>\r\n        <h4 class=\" ins-bg-second text-white p-2 mb-0\">Checkout</h4>\r\n        <div id=\"accordion\">\r\n            <ul class=\"list-unstyled\">\r\n                <li class=\"ins-pb\">\r\n                    <app-personal-information></app-personal-information>\r\n                </li>\r\n                <li class=\"ins-pb\">\r\n                    <app-addresses></app-addresses>\r\n                </li>\r\n                <li class=\"ins-pb\">\r\n                    <h5 class=\"mb-0\">\r\n                        <button class=\"btn btn-link p-0 mb-4 ins-a-brand\" data-toggle=\"collapse\" data-target=\"#shippingMethod\" aria-expanded=\"true\"\r\n                            aria-controls=\"collapseOne\">\r\n                            <h5>3 Shipping Methods</h5>\r\n                        </button>\r\n                    </h5>\r\n                    <div id=\"shippingMethod\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\r\n                        <section class=\"clearfix\">\r\n                            <table>\r\n                                <tr>\r\n                                    <th></th>\r\n                                    <th>Price</th>\r\n                                    <th>Method</th>\r\n                                    <th>Carrier</th>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>\r\n                                        <input type=\"radio\" value=\"20000\" name=\"shippingMethod\">\r\n                                    </td>\r\n                                    <td>$15</td>\r\n                                    <td>Table Rate</td>\r\n                                    <td>Best Way</td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>\r\n                                        <input type=\"radio\" name=\"shippingMethod\">\r\n                                    </td>\r\n                                    <td>$4.00</td>\r\n                                    <td>Table Rate</td>\r\n                                    <td>Best Way</td>\r\n                                </tr>\r\n                            </table>\r\n                            <button class=\"btn ins-btn-outline-brand float-right mt-4\">Continue</button>\r\n                        </section>\r\n                    </div>\r\n                </li>\r\n                <li class=\"ins-pb\">\r\n                    <h5 class=\"mb-0\">\r\n                        <button class=\"btn btn-link p-0 mb-4 ins-a-brand\" data-toggle=\"collapse\" data-target=\"#reviewPayment\" aria-expanded=\"true\"\r\n                            aria-controls=\"collapseOne\">\r\n                            <h5>4 Payment & Review</h5>\r\n                        </button>\r\n                    </h5>\r\n                    <div id=\"reviewPayment\" class=\"collapse\" aria-labelledby=\"reviewPayment\" data-parent=\"#accordion\">\r\n                        <section class=\"clearfix\">\r\n                            <table id=\"payment\" class=\"payment\">\r\n                                <tr>\r\n                                    <td>\r\n                                        <input type=\"radio\" name=\"payement\" data-toggle=\"collapse\" data-target=\"#payByCheck\" aria-expanded=\"true\" aria-controls=\"payByCheck\">\r\n                                    </td>\r\n                                    <td>Pay by Check</td>\r\n\r\n                                </tr>\r\n                                <tr>\r\n                                    <td></td>\r\n                                    <td id=\"payByCheck\" class=\"collapse\" aria-labelledby=\"payByCheck\" data-parent=\"#payment\">\r\n                                        <table class=\"ins payment-by-check \">\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Amount\r\n                                                </td>\r\n                                                <td>\r\n                                                    $26.12 (tax incl.)\r\n                                                </td>\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Payee\r\n                                                </td>\r\n                                                <td>\r\n                                                    <input type=\"text\">\r\n                                                </td>\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Send your check to this address\r\n                                                </td>\r\n                                                <td>\r\n                                                    <input type=\"text\">\r\n                                                </td>\r\n                                            </tr>\r\n                                        </table>\r\n                                    </td>\r\n                                    <td></td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>\r\n                                        <input type=\"radio\" name=\"payement\" data-toggle=\"collapse\" data-target=\"#payByBank\" aria-expanded=\"true\" aria-controls=\"payByBank\">\r\n                                    </td>\r\n                                    <td>Pay by Bank</td>\r\n\r\n                                </tr>\r\n                                <tr>\r\n                                    <td></td>\r\n                                    <td id=\"payByBank\" class=\"collapse\" aria-labelledby=\"payByBank\" data-parent=\"#payment\">\r\n                                        <p>Please transfer the invoice amount to our bank account. You will receive our order\r\n                                            confirmation by email containing bank details and order number. Goods will be\r\n                                            reserved 7 days for you and we'll process the order immediately after receiving\r\n                                            the payment.</p>\r\n                                    </td>\r\n                                    <td></td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>\r\n                                        <input type=\"checkbox\">\r\n                                    </td>\r\n                                    <td>I agree to the terms of service and will adhere to them unconditionally.</td>\r\n                                </tr>\r\n                            </table>\r\n                            <button (click)=\"ordered()\" [disabled]=\"shoppingCart.items_counted==0\" routerLink=\"./payment-success\" class=\"btn ins-btn-outline-brand float-right mt-4\">\r\n                                <b>ORDER WITH AN OBLIGATION TO PAY</b>\r\n                            </button>\r\n\r\n                        </section>\r\n                    </div>\r\n                </li>\r\n            </ul>\r\n            <div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1383,6 +1411,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_cart_shopping_cart_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/cart/shopping-cart.service */ "./src/app/models/cart/shopping-cart.service.ts");
 /* harmony import */ var _models_login_logout_login_status_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../models/login-logout/login-status.service */ "./src/app/models/login-logout/login-status.service.ts");
 /* harmony import */ var _models_login_logout_user_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/login-logout/user.service */ "./src/app/models/login-logout/user.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/esm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1392,6 +1421,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1421,11 +1451,8 @@ var CheckoutProductComponent = /** @class */ (function () {
         this.checkToken();
         this.shoppingCartService.initCart();
         this.shoppingCart = JSON.parse(this.shoppingCartService.getStorage());
+        this.checkoutForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormGroup"]({});
     };
-    // initShippingOptions() {
-    // }
-    // checkShippingOptions() {
-    // }
     CheckoutProductComponent.prototype.getUser = function () {
         var _this = this;
         this.userService.getAll().subscribe(function (_) { return _this.currentUser = _.user; });
@@ -1445,7 +1472,8 @@ var CheckoutProductComponent = /** @class */ (function () {
     CheckoutProductComponent.prototype.ordered = function () {
         var _this = this;
         this.shoppingCartService.updateCart(this.shoppingCart);
-        if (this.shoppingCart.items.length > 0) {
+        this.itemsToOrder = this.shoppingCart.items.length;
+        if (this.itemsToOrder > 0) {
             this.orderCurrent.total = this.shoppingCart.total;
             this.orderCurrent._user._id = this.currentUser._id;
             this.orderCurrent._user.email = this.currentUser.email;
@@ -1461,17 +1489,14 @@ var CheckoutProductComponent = /** @class */ (function () {
             }
             this.orderService.addOrder(this.orderCurrent).
                 subscribe(function (data) {
+                localStorage.setItem("_orderCurrent", JSON.stringify(data));
+                _this.orderService.setOrderStatus(JSON.parse(localStorage.getItem("_orderCurrent")));
                 console.log("Da dat hang thanh cong\nThanh tien: " + data.total + "\nSo luong sach: " + data.books.length);
-                // this.orderCurrent.total = 0;
-                // this.orderCurrent._user = '';
                 _this.orderCurrent.books = new Array();
                 _this.orderCurrent._user = new _models_cart_order__WEBPACK_IMPORTED_MODULE_1__["_User"]();
                 _this.shoppingCartService.removeShoppingCart();
             });
         }
-    };
-    CheckoutProductComponent.prototype.remove = function () {
-        localStorage.removeItem('shoppingCart');
     };
     CheckoutProductComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1485,63 +1510,6 @@ var CheckoutProductComponent = /** @class */ (function () {
             _models_login_logout_user_service__WEBPACK_IMPORTED_MODULE_6__["UserService"]])
     ], CheckoutProductComponent);
     return CheckoutProductComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/checkout/checkout-product/payment-review/payment-review.component.css":
-/*!***************************************************************************************!*\
-  !*** ./src/app/checkout/checkout-product/payment-review/payment-review.component.css ***!
-  \***************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "table td, th {\r\n\tpadding: 16px;\r\n\r\n}\r\n table tr {\r\n\tborder-top: 1px solid #eee;\r\n}\r\n table tr:first-child {\r\n\tborder-top: 0px;\r\n}\r\n"
-
-/***/ }),
-
-/***/ "./src/app/checkout/checkout-product/payment-review/payment-review.component.html":
-/*!****************************************************************************************!*\
-  !*** ./src/app/checkout/checkout-product/payment-review/payment-review.component.html ***!
-  \****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<!-- <h5 class=\"mb-0\">\r\n    <button class=\"btn btn-link p-0 mb-4 ins-a-brand\" data-toggle=\"collapse\" data-target=\"#reviewPayment\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\r\n      <h5>4 Payment & Review</h5>\r\n    </button>\r\n</h5>\r\n<div id=\"reviewPayment\"  class=\"collapse\" aria-labelledby=\"reviewPayment\" data-parent=\"#accordion\">\r\n    <section class=\"clearfix\">\r\n        <table id=\"payment\" class=\"payment\">\r\n            <tr>\r\n                <td>\r\n                    <input type=\"radio\" name=\"payement\" data-toggle=\"collapse\" data-target=\"#payByCheck\" aria-expanded=\"true\" aria-controls=\"payByCheck\"> \r\n                </td>\r\n                <td>Pay by Check</td>\r\n                \r\n            </tr>\r\n            <tr>\r\n                <td></td>\r\n                <td  id=\"payByCheck\" class=\"collapse\" aria-labelledby=\"payByCheck\" data-parent=\"#payment\">\r\n                        <table class=\"ins payment-by-check \">\r\n                                <tr>\r\n                                    <td>\r\n                                       Amount\r\n                                    </td>\r\n                                    <td>\r\n                                       $26.12 (tax incl.)\r\n                                    </td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>\r\n                                       Payee\r\n                                    </td>\r\n                                    <td>\r\n                                       <input type=\"text\">\r\n                                    </td>\r\n                                </tr>\r\n                                <tr>\r\n                                    <td>\r\n                                       Send your check to this address\r\n                                    </td>\r\n                                    <td>\r\n                                       <input type=\"text\">\r\n                                    </td>\r\n                                </tr>\r\n                            </table> \r\n                </td>\r\n                <td></td>\r\n            </tr>\r\n            <tr>\r\n                <td>\r\n                    <input type=\"radio\" name=\"payement\" data-toggle=\"collapse\" data-target=\"#payByBank\" aria-expanded=\"true\" aria-controls=\"payByBank\"> \r\n                </td>\r\n                <td>Pay by Bank</td>\r\n                \r\n            </tr>\r\n            <tr>\r\n                <td></td>\r\n                <td id=\"payByBank\" class=\"collapse\" aria-labelledby=\"payByBank\" data-parent=\"#payment\">\r\n                    <p>Please transfer the invoice amount to our bank account. You will receive our order confirmation by email containing bank details and order number. Goods will be reserved 7 days for you and we'll process the order immediately after receiving the payment.</p>\r\n                </td>\r\n                <td></td>\r\n            </tr>\r\n            <tr>\r\n                <td><input type=\"checkbox\"></td>\r\n                <td>I agree to the terms of service and will adhere to them unconditionally.</td>\r\n            </tr>\r\n        </table>\r\n        <button (click)=\"ordered()\" class=\"btn ins-btn-outline-brand float-right mt-4\"><b>ORDER WITH AN OBLIGATION TO PAY</b></button>\r\n    </section>\r\n</div> -->"
-
-/***/ }),
-
-/***/ "./src/app/checkout/checkout-product/payment-review/payment-review.component.ts":
-/*!**************************************************************************************!*\
-  !*** ./src/app/checkout/checkout-product/payment-review/payment-review.component.ts ***!
-  \**************************************************************************************/
-/*! exports provided: PaymentReviewComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaymentReviewComponent", function() { return PaymentReviewComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var PaymentReviewComponent = /** @class */ (function () {
-    function PaymentReviewComponent() {
-    }
-    PaymentReviewComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-payment-review',
-            template: __webpack_require__(/*! ./payment-review.component.html */ "./src/app/checkout/checkout-product/payment-review/payment-review.component.html"),
-            styles: [__webpack_require__(/*! ./payment-review.component.css */ "./src/app/checkout/checkout-product/payment-review/payment-review.component.css")]
-        })
-    ], PaymentReviewComponent);
-    return PaymentReviewComponent;
 }());
 
 
@@ -1692,7 +1660,7 @@ module.exports = "\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <app-breadcrumb></app-breadcrumb>\r\n    <div class=\"row ins-shopping-cart\">\r\n        <div class=\"col-md-8 col-12\">\r\n            <app-checkout-product></app-checkout-product>\r\n         </div>  \r\n  \r\n        <div class=\"col-md-4 col-12 \">\r\n            <app-total-cart></app-total-cart>\r\n            <app-list-item-policy></app-list-item-policy>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n    <app-breadcrumb></app-breadcrumb>\r\n    <div [hidden]=\"shoppingCart.items_counted==0\" class=\"row ins-shopping-cart\">\r\n        <div class=\"col-md-8 col-12\">\r\n            <app-checkout-product></app-checkout-product>\r\n         </div>  \r\n  \r\n        <div class=\"col-md-4 col-12 \">\r\n            <app-total-cart></app-total-cart>\r\n            <app-list-item-policy></app-list-item-policy>\r\n        </div>\r\n    </div>\r\n    \r\n    <div class=\"row justify-content-center\">\r\n            <router-outlet></router-outlet>\r\n    </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1707,6 +1675,12 @@ module.exports = "<div class=\"container\">\r\n    <app-breadcrumb></app-breadcr
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CheckoutComponent", function() { return CheckoutComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var _models_login_logout_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/login-logout/user.service */ "./src/app/models/login-logout/user.service.ts");
+/* harmony import */ var _models_cart_order_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/cart/order.service */ "./src/app/models/cart/order.service.ts");
+/* harmony import */ var _models_cart_shopping_cart_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/cart/shopping-cart.service */ "./src/app/models/cart/shopping-cart.service.ts");
+/* harmony import */ var _models_login_logout_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../models/login-logout/user */ "./src/app/models/login-logout/user.ts");
+/* harmony import */ var _models_cart_order__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../models/cart/order */ "./src/app/models/cart/order.ts");
+/* harmony import */ var _models_login_logout_login_status_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../models/login-logout/login-status.service */ "./src/app/models/login-logout/login-status.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1717,10 +1691,46 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
+
+
 var CheckoutComponent = /** @class */ (function () {
-    function CheckoutComponent() {
+    function CheckoutComponent(orderService, shoppingCartService, loginStatusService, userService) {
+        var _this = this;
+        this.orderService = orderService;
+        this.shoppingCartService = shoppingCartService;
+        this.loginStatusService = loginStatusService;
+        this.userService = userService;
+        this.currentUser = new _models_login_logout_user__WEBPACK_IMPORTED_MODULE_4__["User"]();
+        this.statusUser = false;
+        this.orderCurrent = new _models_cart_order__WEBPACK_IMPORTED_MODULE_5__["Order"]();
+        shoppingCartService.totalStatus$.subscribe(function (status) {
+            _this.shoppingCart = JSON.parse(_this.shoppingCartService.getStorage());
+        });
     }
     CheckoutComponent.prototype.ngOnInit = function () {
+        this.checkToken();
+        this.shoppingCartService.initCart();
+        this.shoppingCart = JSON.parse(this.shoppingCartService.getStorage());
+    };
+    CheckoutComponent.prototype.getUser = function () {
+        var _this = this;
+        this.userService.getAll().subscribe(function (_) { return _this.currentUser = _.user; });
+    };
+    ;
+    CheckoutComponent.prototype.checkToken = function () {
+        if (localStorage.getItem('_currentUser')) {
+            this.statusUser = true;
+            this.loginStatusService.setStatus(this.statusUser);
+            this.getUser();
+        }
+        else {
+            this.loginStatusService.setStatus(this.statusUser);
+        }
+        console.log('check');
     };
     CheckoutComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1728,9 +1738,133 @@ var CheckoutComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./checkout.component.html */ "./src/app/checkout/checkout.component.html"),
             styles: [__webpack_require__(/*! ./checkout.component.css */ "./src/app/checkout/checkout.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_models_cart_order_service__WEBPACK_IMPORTED_MODULE_2__["OrderService"],
+            _models_cart_shopping_cart_service__WEBPACK_IMPORTED_MODULE_3__["ShoppingCartService"],
+            _models_login_logout_login_status_service__WEBPACK_IMPORTED_MODULE_6__["LoginStatusService"],
+            _models_login_logout_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"]])
     ], CheckoutComponent);
     return CheckoutComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/checkout/payment-success/payment-success.component.css":
+/*!************************************************************************!*\
+  !*** ./src/app/checkout/payment-success/payment-success.component.css ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/checkout/payment-success/payment-success.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/checkout/payment-success/payment-success.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"mb-3 border p-4\">\n  <h2>Đặt hàng thành công</h2>\n  <p>mã số đơn hàng của bạn:</p>\n  <button routerLink=\"/account/order-manage/{{orderCurrent._id}}\" class=\"btn ins-btn-outline-brand  mt-4\">\n{{orderCurrent._id}}\n  </button>\n  <h3>Cảm ơn bạn đã mua hàng tại\n    <a routerLink=\"/homepage\" class=\"ins-a-brand\">Book mall</a>\n  </h3>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/checkout/payment-success/payment-success.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/checkout/payment-success/payment-success.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: PaymentSuccessComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaymentSuccessComponent", function() { return PaymentSuccessComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var _models_cart_order__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../models/cart/order */ "./src/app/models/cart/order.ts");
+/* harmony import */ var _models_cart_order_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/cart/order.service */ "./src/app/models/cart/order.service.ts");
+/* harmony import */ var _models_login_logout_login_status_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../models/login-logout/login-status.service */ "./src/app/models/login-logout/login-status.service.ts");
+/* harmony import */ var _models_login_logout_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/login-logout/user.service */ "./src/app/models/login-logout/user.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators.js");
+/* harmony import */ var _models_login_logout_user__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/login-logout/user */ "./src/app/models/login-logout/user.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var PaymentSuccessComponent = /** @class */ (function () {
+    function PaymentSuccessComponent(loginStatusService, orderService, userService) {
+        var _this = this;
+        this.loginStatusService = loginStatusService;
+        this.orderService = orderService;
+        this.userService = userService;
+        this.statusUser = false;
+        this.currentUser = new _models_login_logout_user__WEBPACK_IMPORTED_MODULE_6__["User"]();
+        this.order = new _models_cart_order__WEBPACK_IMPORTED_MODULE_1__["Order"]();
+        loginStatusService.status$.subscribe(function (status) {
+            // this.status = status;
+            if (status) {
+                _this.getUser();
+            }
+            // this.currentUser = JSON.parse(localStorage.getItem('_currentUser'));
+            // console.log(this.status);
+        });
+        orderService.totalStatus$.subscribe(function (status) {
+            _this.orderCurrent = JSON.parse(localStorage.getItem('_orderCurrent'));
+            console.log(_this.orderCurrent);
+        });
+    }
+    PaymentSuccessComponent.prototype.ngOnInit = function () {
+        this.orderCurrent = JSON.parse(localStorage.getItem('_orderCurrent'));
+        this.getOrder();
+        this.checkToken();
+    };
+    PaymentSuccessComponent.prototype.getOrder = function () {
+        var _this = this;
+        this.orderCurrent = JSON.parse(localStorage.getItem('_orderCurrent'));
+        console.log(this.orderCurrent._id);
+        this.orderService.getOrder(this.orderCurrent._id).subscribe(function (_) { return _this.order = _; });
+    };
+    PaymentSuccessComponent.prototype.getUser = function () {
+        var _this = this;
+        this.userService.getAll().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])()).subscribe(function (_) { return _this.currentUser = _.user; });
+    };
+    ;
+    PaymentSuccessComponent.prototype.checkToken = function () {
+        if (localStorage.getItem('_currentUser')) {
+            this.statusUser = true;
+            this.loginStatusService.setStatus(this.statusUser);
+            this.getUser();
+        }
+        else {
+            this.loginStatusService.setStatus(this.statusUser);
+        }
+        console.log('check');
+    };
+    PaymentSuccessComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-payment-success',
+            template: __webpack_require__(/*! ./payment-success.component.html */ "./src/app/checkout/payment-success/payment-success.component.html"),
+            styles: [__webpack_require__(/*! ./payment-success.component.css */ "./src/app/checkout/payment-success/payment-success.component.css")]
+        }),
+        __metadata("design:paramtypes", [_models_login_logout_login_status_service__WEBPACK_IMPORTED_MODULE_3__["LoginStatusService"],
+            _models_cart_order_service__WEBPACK_IMPORTED_MODULE_2__["OrderService"],
+            _models_login_logout_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]])
+    ], PaymentSuccessComponent);
+    return PaymentSuccessComponent;
 }());
 
 
@@ -1870,7 +2004,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".ins-img-single {\r\n  position: relative;\r\n}\r\n.ins-img-single div {\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n}\r\n.ins-nav-category {\r\n  font-size: 15px;\r\n  position: absolute;\r\n  z-index: 1000;\r\n  background: rgb(0, 0, 0, 0.7);\r\n  height: 100%;\r\n  padding: 10px;\r\n}\r\n.ins-nav-category  a {\r\n  color:  white;\r\n  \r\n}\r\n.ins-nav-category  a:hover {\r\n  color:  rgb(172, 147, 108);\r\n  background: transparent;\r\n\r\n}\r\n@media (min-width: 991px) {\r\n\r\n}\r\n"
+module.exports = ".ins-img-single {\r\n  position: relative;\r\n}\r\n.ins-img-single div {\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n}\r\n.ins-nav-category {\r\n  font-size: 15px;\r\n  position: absolute;\r\n  z-index: 1000;\r\n  background: rgb(0, 0, 0, 0.7);\r\n  height: 100%;\r\n  padding: 10px;\r\n}\r\n.ins-nav-category  a {\r\n  color:  white;\r\n  \r\n}\r\n.ins-nav-category  a:hover {\r\n  color:  rgb(172, 147, 108);\r\n  background: transparent;\r\n\r\n}\r\n@media (max-width: 767.98px) {\r\n  .ins-nav-category {\r\n    display: none; \r\n  }\r\n}\r\n"
 
 /***/ }),
 
@@ -1881,7 +2015,7 @@ module.exports = ".ins-img-single {\r\n  position: relative;\r\n}\r\n.ins-img-si
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div> -->\r\n<div class=\"container\">\r\n  <nav class=\"navbar p-0 \">\r\n    <div class=\" d-flex align-items-center\">\r\n      <!-- <div class=\"col-md-3 col-sm-4\"> -->\r\n      <ul class=\"list-unstyled ins-nav-category\">\r\n        <li>\r\n          <a *ngFor=\"let genre of genres\" class=\"dropdown-item px-0\" routerLink=\"/category\">{{genre.name}}</a>\r\n        </li>\r\n      </ul>\r\n      <!-- </div> -->\r\n      <!-- <div class=\"col-md-9 col-sm-8\"> -->\r\n      <app-slide [banners]=\"banners\"></app-slide>\r\n      <!-- </div> -->\r\n    </div>\r\n\r\n  </nav>\r\n\r\n  <app-list-item-support></app-list-item-support>\r\n  <app-new-feature-best-product></app-new-feature-best-product>\r\n  <div class=\"row ins-img-single-quote\">\r\n    <div class=\"d-flex align-items-center mt-4\">\r\n      <div class=\"col-md-8\">\r\n        <video controls class=\"video w-100\" muted loop preload=\"auto\">\r\n          <source src=\"https://res.cloudinary.com/dtbgme8xe/video/upload/v1531459759/bookshop-angular/video.mp4\" type=\"video/mp4\">\r\n        </video>\r\n      </div>\r\n      <div class=\"col-md-4 p-4\">\r\n        <h2> Lorem ipsum dolor sit amet. </h2>\r\n        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloribus distinctio placeat nisi error, at aliquid\r\n          reprehenderit aut corporis cumque.</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <app-similar-product></app-similar-product>\r\n  <div class=\"ins-img-single mt-4 \">\r\n    <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459773/bookshop-angular/paper.png\" class=\"w-100\" alt=\"\">\r\n    <div>\r\n      <p class=\"display-3\">Wellcome to our Store</p>\r\n      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, alias!</p>\r\n    </div>\r\n  </div>\r\n  <app-list-item-company></app-list-item-company>\r\n</div>\r\n\r\n<!-- </div> -->"
+module.exports = "<!-- <div> -->\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n      <div class=\"\">\r\n        <!-- <div class=\"col-md-3 col-sm-4\"> -->\r\n        <ul class=\"list-unstyled ins-nav-category\">\r\n          <li>\r\n            <a *ngFor=\"let genre of genres\" class=\"dropdown-item px-0\" routerLink=\"/category\">{{genre.name}}</a>\r\n            <a class=\"dropdown-item px-0\" routerLink=\"/category\">more...</a>\r\n            \r\n          </li>\r\n        </ul>\r\n        <!-- </div> -->\r\n        <!-- <div class=\"col-md-9 col-sm-8\"> -->\r\n        <app-slide [banners]=\"banners\"></app-slide>\r\n        <!-- </div> -->\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <app-list-item-support></app-list-item-support>\r\n  <app-new-feature-best-product></app-new-feature-best-product>\r\n  <div class=\"row ins-img-single-quote\">\r\n    <div class=\"d-flex align-items-center mt-4\">\r\n      <div class=\"col-md-8\">\r\n        <video controls class=\"video w-100\" muted loop preload=\"auto\">\r\n          <source src=\"https://res.cloudinary.com/dtbgme8xe/video/upload/v1531459759/bookshop-angular/video.mp4\" type=\"video/mp4\">\r\n        </video>\r\n      </div>\r\n      <div class=\"col-md-4 p-4\">\r\n        <h2> Lorem ipsum dolor sit amet. </h2>\r\n        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloribus distinctio placeat nisi error, at aliquid\r\n          reprehenderit aut corporis cumque.</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <app-similar-product></app-similar-product>\r\n  <div class=\"ins-img-single mt-4 \">\r\n    <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459773/bookshop-angular/paper.png\" class=\"w-100\" alt=\"\">\r\n    <div>\r\n      <p class=\"display-3\">Wellcome to our Store</p>\r\n      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, alias!</p>\r\n    </div>\r\n  </div>\r\n  <app-list-item-company></app-list-item-company>\r\n</div>\r\n\r\n<!-- </div> -->"
 
 /***/ }),
 
@@ -1928,7 +2062,7 @@ var HomepageComponent = /** @class */ (function () {
     HomepageComponent.prototype.getGenres = function () {
         var _this = this;
         this.genreService.getGenres()
-            .subscribe(function (genres) { return _this.genres = genres; });
+            .subscribe(function (genres) { return _this.genres = genres.slice(1, 7); });
     };
     HomepageComponent.prototype.getBanners = function () {
         var _this = this;
@@ -1985,7 +2119,7 @@ module.exports = "  /* ins-list-item-2 */\r\n  .ins-list-item-2 img {\r\n    wid
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ins-list-item-2 ins-py d-flex justify-content-between\">\r\n    <a href=\"#\" >\r\n      <img src=\"../assets/images/logo1.png\" alt=\"\">\r\n    </a>\r\n    <a href=\"#\" >\r\n      <img src=\"../assets/images/logo2.png\" alt=\"\">\r\n    </a>\r\n    <a href=\"#\" >\r\n      <img src=\"../assets/images/logo3.png\" alt=\"\">\r\n    </a>\r\n    <a href=\"#\" >\r\n      <img src=\"../assets/images/logo4.png\" alt=\"\">\r\n    </a>\r\n</div>\r\n"
+module.exports = "<div class=\"ins-list-item-2 ins-py d-flex justify-content-between\">\r\n    <a href=\"#\" >\r\n      <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459725/bookshop-angular/logo4.png\" alt=\"\">\r\n    </a>\r\n    <a href=\"#\" >\r\n      <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459721/bookshop-angular/logo3.png\" alt=\"\">\r\n    </a>\r\n    <a href=\"#\" >\r\n      <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459719/bookshop-angular/logo2.png\" alt=\"\">\r\n    </a>\r\n    <a href=\"#\" >\r\n      <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459718/bookshop-angular/logo1.png\" alt=\"\">\r\n    </a>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2231,7 +2365,7 @@ var SimilarProductComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".carousel-caption {\r\n  top: 100px;\r\n  position: absolute;\r\n}\r\n.carousel-caption p {\r\n  width: 500px;\r\n}\r\n.caption-right {\r\n  right: 100px;\r\n  left: auto;\r\n}\r\n.caption-left {\r\n  left: 100px;\r\n  right: auto;\r\n}\r\n/* slide */\r\n.ins-slide-home {\r\n    margin: 0px !important  ;\r\n  }\r\n.ins-slide-home {\r\n    width: 1110px;;\r\n  }\r\n.img-fluid {\r\n    width: 100%;\r\n  }\r\n/* slide-end */\r\n\r\n\r\n"
+module.exports = ".carousel-caption {\r\n  top: 100px;\r\n  position: absolute;\r\n}\r\n.carousel-caption p {\r\n  width: 500px;\r\n}\r\n.caption-right {\r\n  right: 100px;\r\n  left: auto;\r\n}\r\n.caption-left {\r\n  left: 100px;\r\n  right: auto;\r\n}\r\n/* slide */\r\n.ins-slide-home {\r\n    margin: 0px !important  ;\r\n  }\r\n.img-fluid {\r\n    width: 100%;\r\n  }\r\n/* slide-end */\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -2242,7 +2376,7 @@ module.exports = ".carousel-caption {\r\n  top: 100px;\r\n  position: absolute;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"banners\">\r\n  <div id=\"carouselExampleIndicators\" class=\"carousel slide ins-slide-home\" data-ride=\"carousel\">\r\n    <ol class=\"carousel-indicators\">\r\n      <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"0\" class=\"active\"></li>\r\n      <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"1\"></li>\r\n      <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"2\"></li>\r\n      <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"3\"></li>\r\n    </ol>\r\n    <div class=\"carousel-inner\" role=\"listbox\">\r\n      <div class=\"carousel-item active\">\r\n        <img class=\"d-block img-fluid\" src=\"{{banners[0].imageUrl}}\" alt=\"First slide\">\r\n        <div class=\"carousel-caption d-none d-md-block caption-right\">\r\n        </div>\r\n      </div>\r\n      <div class=\"carousel-item \">\r\n        <img class=\"d-block img-fluid\" src=\"{{banners[1].imageUrl}}\" alt=\"Second slide\">\r\n        <div class=\"carousel-caption d-none d-md-block caption-right\">\r\n        </div>\r\n      </div>\r\n      <div class=\"carousel-item \">\r\n        <img class=\"d-block img-fluid\" src=\"{{banners[2].imageUrl}}\" alt=\"Third slide\">\r\n        <div class=\"carousel-caption d-none d-md-block caption-right\">\r\n        </div>\r\n      </div>\r\n      <div class=\"carousel-item \">\r\n        <img class=\"d-block img-fluid\" src=\"{{banners[3].imageUrl}}\" alt=\"Fourth slide\">\r\n        <div class=\"carousel-caption d-none d-md-block caption-right\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"prev\">\r\n      <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\r\n      <span class=\"sr-only\">Previous</span>\r\n    </a>\r\n    <a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"next\">\r\n      <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\r\n      <span class=\"sr-only\">Next</span>\r\n    </a>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-12\">\r\n        <div *ngIf=\"banners\">\r\n            <div id=\"carouselExampleIndicators\" class=\"carousel slide ins-slide-home\" data-ride=\"carousel\">\r\n              <ol class=\"carousel-indicators\">\r\n                <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"0\" class=\"active\"></li>\r\n                <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"1\"></li>\r\n                <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"2\"></li>\r\n                <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"3\"></li>\r\n              </ol>\r\n              <div class=\"carousel-inner\" role=\"listbox\">\r\n                <div class=\"carousel-item active\">\r\n                  <img class=\"d-block img-fluid\" src=\"{{banners[0].imageUrl}}\" alt=\"First slide\">\r\n                  <div class=\"carousel-caption d-none d-md-block caption-right\">\r\n                  </div>\r\n                </div>\r\n                <div class=\"carousel-item \">\r\n                  <img class=\"d-block img-fluid\" src=\"{{banners[1].imageUrl}}\" alt=\"Second slide\">\r\n                  <div class=\"carousel-caption d-none d-md-block caption-right\">\r\n                  </div>\r\n                </div>\r\n                <div class=\"carousel-item \">\r\n                  <img class=\"d-block img-fluid\" src=\"{{banners[2].imageUrl}}\" alt=\"Third slide\">\r\n                  <div class=\"carousel-caption d-none d-md-block caption-right\">\r\n                  </div>\r\n                </div>\r\n                <div class=\"carousel-item \">\r\n                  <img class=\"d-block img-fluid\" src=\"{{banners[3].imageUrl}}\" alt=\"Fourth slide\">\r\n                  <div class=\"carousel-caption d-none d-md-block caption-right\">\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"prev\">\r\n                <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\r\n                <span class=\"sr-only\">Previous</span>\r\n              </a>\r\n              <a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"next\">\r\n                <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\r\n                <span class=\"sr-only\">Next</span>\r\n              </a>\r\n            </div>\r\n          </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -2372,7 +2506,7 @@ module.exports = ".wrapper-sign {\r\n  margin: 100px 0;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n\r\n  <div class=\"row justify-content-center ins-customer-login\">\r\n    <div class=\"col-6\">\r\n      <div class=\"wrapper-sign\">\r\n        <h4 class=\" ins-bg-second text-white p-2 mb-3\">New Member</h4>\r\n        <form [formGroup]=\"userForm\" #newMember=\"ngForm\" (ngSubmit)=\"onSubmit()\">\r\n          <div [hidden]=\"newMember.submitted && newMember.valid && !error\">\r\n            <div class=\"form-group\">\r\n              <label for=\"username\">Username</label>\r\n              <input type=\"text\" formControlName=\"email\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && newUserControl.email.errors }\"/>\r\n              <div *ngIf=\"submitted && newUserControl.email.errors\" class=\"invalid-feedback\">\r\n                <div *ngIf=\"newUserControl.email.errors['required']\">Username is required</div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"password\">Password</label>\r\n              <input type=\"password\" formControlName=\"password\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && newUserControl.email.errors }\"/>\r\n              <div *ngIf=\"submitted && newUserControl.password.errors\" class=\"invalid-feedback\" >\r\n                <div *ngIf=\"newUserControl.password.errors['required']\">Password is required</div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"password\">Last Name</label>\r\n              <input type=\"text\" formControlName=\"last\" class=\"form-control\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"password\">First Name</label>\r\n              <input type=\"text\" formControlName=\"first\" class=\"form-control\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"password\">Phone</label>\r\n              <input type=\"phone\" formControlName=\"phone\" placeholder=\"\" class=\"form-control\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <button type=\"submit\" [disabled]=\"userForm.invalid\" class=\"btn btn-primary\">Sign out</button>\r\n              <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\"\r\n              />\r\n            </div>\r\n          </div> \r\n        </form>\r\n        <div>\r\n          <h2 *ngIf=\"newMember.submitted && userForm.valid && !error\">Successfull Sign in</h2>\r\n          <p *ngIf=\"error\" class=\"alert alert-danger\">{{error.error.error | json}}</p>\r\n          <a routerLink=\"/registered-custumer\" class=\"ins-a-brand\">Là thành viên? Đăng Nhập tại đây.</a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n\r\n  <div class=\"row justify-content-center ins-customer-login\">\r\n    <div class=\"col-9 col-md-7 col-lg-6\">\r\n      <div class=\"wrapper-sign\">\r\n        <h4 class=\" ins-bg-second text-white p-2 mb-3\">New Member</h4>\r\n        <form [formGroup]=\"userForm\" #newMember=\"ngForm\" (ngSubmit)=\"onSubmit()\">\r\n          <div [hidden]=\"newMember.submitted && newMember.valid && !error\">\r\n            <div class=\"form-group\">\r\n              <label for=\"username\">Username</label>\r\n              <input type=\"text\" formControlName=\"email\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && newUserControl.email.errors }\"/>\r\n              <div *ngIf=\"submitted && newUserControl.email.errors\" class=\"invalid-feedback\">\r\n                <div *ngIf=\"newUserControl.email.errors['required']\">Username is required</div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"password\">Password</label>\r\n              <input type=\"password\" formControlName=\"password\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && newUserControl.email.errors }\"/>\r\n              <div *ngIf=\"submitted && newUserControl.password.errors\" class=\"invalid-feedback\" >\r\n                <div *ngIf=\"newUserControl.password.errors['required']\">Password is required</div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"password\">Last Name</label>\r\n              <input type=\"text\" formControlName=\"last\" class=\"form-control\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"password\">First Name</label>\r\n              <input type=\"text\" formControlName=\"first\" class=\"form-control\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"password\">Phone</label>\r\n              <input type=\"phone\" formControlName=\"phone\" placeholder=\"\" class=\"form-control\" />\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <button type=\"submit\" [disabled]=\"userForm.invalid\" class=\"btn btn-primary\">Sign out</button>\r\n              <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\"\r\n              />\r\n            </div>\r\n          </div> \r\n        </form>\r\n        <div>\r\n          <h2 *ngIf=\"newMember.submitted && userForm.valid && !error\">Successfull Sign in</h2>\r\n          <p *ngIf=\"error\" class=\"alert alert-danger\">{{error.error.error | json}}</p>\r\n          <a routerLink=\"/registered-custumer\" class=\"ins-a-brand\">Là thành viên? Đăng Nhập tại đây.</a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2496,7 +2630,7 @@ module.exports = ".wrapper-login {\r\n  margin: 100px 0;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <h4 class=\" ins-bg-second text-white p-2 mb-0\">Registered Custumer</h4>\r\n<form [formGroup]=\"loginForm\" (ngSubmit)=\"onSubmit()\" class=\"clearfix\">\r\n  <div class=\"row mt-4 d-flex align-items-center\">\r\n    <div class=\"form-group\">\r\n      <label for=\"\" class=\"col-md-3 m-0\">\r\n        <label for=\"username\">Username</label>\r\n      </label>\r\n      <div class=\"col-md-6\">\r\n        <input type=\"text\" formControlName=\"username\">\r\n        <div *ngIf=\"submitted && f.username.errors\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\" class=\"invalid-feedback\">\r\n          <div *ngIf=\"f.username.errors.required\">Username is required</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"row mt-4 d-flex align-items-center\">\r\n    <div>\r\n      <label for=\"\" class=\"col-md-3 m-0\">Password</label>\r\n      <div class=\"col-md-6\">\r\n        <input type=\"Password\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\" formControlName=\"password\">\r\n        <div *ngIf=\"submitted && f.password.errors\" class=\"invalid-feedback\">\r\n          <div *ngIf=\"f.password.errors.required\">Password is required</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"row mt-4 d-flex align-items-center\">\r\n    <p class=\"col-md-3\"></p>\r\n    <p class=\"col-md-9\">\r\n      <a href=\"\" class=\"ins-a-brand\">Forgot Your Password?</a>\r\n    </p>\r\n  </div>\r\n  <button [disabled]=\"loading\" class=\"btn ins-btn-outline-brand float-right mt-4\">Sign in</button>\r\n  <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\" />\r\n  <div *ngIf=\"error\" class=\"\">{{error}}</div>\r\n</form> -->\r\n<!-- <div class=\"alert alert-info\">\r\n    Username: test<br />\r\n    Password: test\r\n</div> -->\r\n\r\n<div class=\"row justify-content-center ins-customer-login\">\r\n  <div class=\"col-6\">\r\n    <div class=\"wrapper-login\">\r\n      <h4 class=\" ins-bg-second text-white p-2 mb-3\">Registered Custumer</h4>\r\n      <form [formGroup]=\"loginForm\" (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"form-group\">\r\n          <label for=\"username\">Username</label>\r\n          <input type=\"text\" formControlName=\"username\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\"\r\n          />\r\n          <div *ngIf=\"submitted && f.username.errors\" class=\"invalid-feedback\">\r\n            <div *ngIf=\"f.username.errors.required\">Username is required</div>\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"password\">Password</label>\r\n          <input type=\"password\" formControlName=\"password\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.password.errors }\"\r\n          />\r\n          <div *ngIf=\"submitted && f.password.errors\" class=\"invalid-feedback\">\r\n            <div *ngIf=\"f.password.errors.required\">Password is required</div>\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <button [disabled]=\"loading\" class=\"btn btn-primary\">Login</button>\r\n          <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\"\r\n          />\r\n        </div>\r\n        <div *ngIf=\"error\" class=\"alert alert-danger\">{{error.error.error | json}}</div>\r\n      </form>\r\n      <div>\r\n        <a routerLink=\"/new-custumer\" class=\"ins-a-brand\">Thành viên mới? Đăng Kí tại đây.</a>\r\n        <br>\r\n        <span>Jennyjohn@gmail.com</span>\r\n        <br>\r\n        <span>1234567890nhhu</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<!-- <h4 class=\" ins-bg-second text-white p-2 mb-0\">Registered Custumer</h4>\r\n<form [formGroup]=\"loginForm\" (ngSubmit)=\"onSubmit()\" class=\"clearfix\">\r\n  <div class=\"row mt-4 d-flex align-items-center\">\r\n    <div class=\"form-group\">\r\n      <label for=\"\" class=\"col-md-3 m-0\">\r\n        <label for=\"username\">Username</label>\r\n      </label>\r\n      <div class=\"col-md-6\">\r\n        <input type=\"text\" formControlName=\"username\">\r\n        <div *ngIf=\"submitted && f.username.errors\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\" class=\"invalid-feedback\">\r\n          <div *ngIf=\"f.username.errors.required\">Username is required</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"row mt-4 d-flex align-items-center\">\r\n    <div>\r\n      <label for=\"\" class=\"col-md-3 m-0\">Password</label>\r\n      <div class=\"col-md-6\">\r\n        <input type=\"Password\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\" formControlName=\"password\">\r\n        <div *ngIf=\"submitted && f.password.errors\" class=\"invalid-feedback\">\r\n          <div *ngIf=\"f.password.errors.required\">Password is required</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"row mt-4 d-flex align-items-center\">\r\n    <p class=\"col-md-3\"></p>\r\n    <p class=\"col-md-9\">\r\n      <a href=\"\" class=\"ins-a-brand\">Forgot Your Password?</a>\r\n    </p>\r\n  </div>\r\n  <button [disabled]=\"loading\" class=\"btn ins-btn-outline-brand float-right mt-4\">Sign in</button>\r\n  <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\" />\r\n  <div *ngIf=\"error\" class=\"\">{{error}}</div>\r\n</form> -->\r\n<!-- <div class=\"alert alert-info\">\r\n    Username: test<br />\r\n    Password: test\r\n</div> -->\r\n\r\n<div class=\"row justify-content-center ins-customer-login\">\r\n  <div class=\"col-9 col-md-7 col-lg-6\">\r\n    <div class=\"wrapper-login\">\r\n      <h4 class=\" ins-bg-second text-white p-2 mb-3\">Registered Custumer</h4>\r\n      <form [formGroup]=\"loginForm\" (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"form-group\">\r\n          <label for=\"username\">Username</label>\r\n          <input type=\"text\" formControlName=\"username\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\"\r\n          />\r\n          <div *ngIf=\"submitted && f.username.errors\" class=\"invalid-feedback\">\r\n            <div *ngIf=\"f.username.errors.required\">Username is required</div>\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"password\">Password</label>\r\n          <input type=\"password\" formControlName=\"password\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.password.errors }\"\r\n          />\r\n          <div *ngIf=\"submitted && f.password.errors\" class=\"invalid-feedback\">\r\n            <div *ngIf=\"f.password.errors.required\">Password is required</div>\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <button [disabled]=\"loading\" class=\"btn btn-primary\">Login</button>\r\n          <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\"\r\n          />\r\n        </div>\r\n        <div *ngIf=\"error\" class=\"alert alert-danger\">{{error.error.error | json}}</div>\r\n      </form>\r\n      <div>\r\n        <a routerLink=\"/new-custumer\" class=\"ins-a-brand\">Thành viên mới? Đăng Kí tại đây.</a>\r\n        <br>\r\n        <span>Jennyjohn@gmail.com</span>\r\n        <br>\r\n        <span>1234567890nhhu</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2768,9 +2902,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderService", function() { return OrderService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/esm5/http.js");
-/* harmony import */ var _login_logout_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../login-logout/user */ "./src/app/models/login-logout/user.ts");
-/* harmony import */ var _login_logout_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../login-logout/user.service */ "./src/app/models/login-logout/user.service.ts");
-/* harmony import */ var _login_logout_login_status_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../login-logout/login-status.service */ "./src/app/models/login-logout/login-status.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/Rx.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(rxjs__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _login_logout_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../login-logout/user */ "./src/app/models/login-logout/user.ts");
+/* harmony import */ var _login_logout_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../login-logout/user.service */ "./src/app/models/login-logout/user.service.ts");
+/* harmony import */ var _login_logout_login_status_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../login-logout/login-status.service */ "./src/app/models/login-logout/login-status.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2780,6 +2916,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -2795,8 +2932,10 @@ var OrderService = /** @class */ (function () {
         this.userService = userService;
         this.loginStatusService = loginStatusService;
         this.ordersUrl = 'http://green-web-bookshop.herokuapp.com/api/orders';
-        this.currentUser = new _login_logout_user__WEBPACK_IMPORTED_MODULE_2__["User"]();
+        this.currentUser = new _login_logout_user__WEBPACK_IMPORTED_MODULE_3__["User"]();
         this.statusUser = false;
+        this.totalSource = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.totalStatus$ = this.totalSource.asObservable();
         loginStatusService.status$.subscribe(function (status) {
             _this.status = status;
             _this.getUser();
@@ -2806,6 +2945,9 @@ var OrderService = /** @class */ (function () {
     }
     OrderService.prototype.ngOnInit = function () {
         this.checkToken();
+    };
+    OrderService.prototype.setOrderStatus = function (order) {
+        this.totalSource.next(order);
     };
     OrderService.prototype.getUser = function () {
         var _this = this;
@@ -2840,8 +2982,8 @@ var OrderService = /** @class */ (function () {
     OrderService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
-            _login_logout_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-            _login_logout_login_status_service__WEBPACK_IMPORTED_MODULE_4__["LoginStatusService"]])
+            _login_logout_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+            _login_logout_login_status_service__WEBPACK_IMPORTED_MODULE_5__["LoginStatusService"]])
     ], OrderService);
     return OrderService;
 }());
@@ -2986,6 +3128,7 @@ var ShoppingCartService = /** @class */ (function () {
             this.shoppingCart.items.push(item);
             console.log('add new item');
         }
+        this.shoppingCart.items_counted = this.shoppingCart.items_counted + quantity;
         this.setStorage();
     };
     ShoppingCartService.prototype.removeItem = function (cartItem) {
@@ -3123,7 +3266,7 @@ var httpOptions = {
 var GenreService = /** @class */ (function () {
     function GenreService(http) {
         this.http = http;
-        this.genresUrl = "https://green-web-bookstore.herokuapp.com/api/genres";
+        this.genresUrl = "https://green-web-bookshop.herokuapp.com/api/genres";
     }
     GenreService.prototype.getGenres = function () {
         return this.http.get(this.genresUrl);
@@ -3482,7 +3625,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"list-unstyled ins-wapper-cart\">\n  <li *ngFor=\"let item of shoppingCart.items\" class=\" float-left mb-4\">\n    <div class=\"row\">\n      <div class=\"col-3\">\n        <a routerLink=\"/detail/{{item.productId}}\">\n          <img src=\"{{item.image}}\" alt=\"\">\n        </a>\n      </div>\n      <div class=\"col-9\">\n        <div>\n          <a class=\"ins-a-brand\" routerLink=\"/detail/{{item.productId}}\">{{item.title}}</a>\n          <i (click)=\"removeItem(item)\" class=\"ins-icon-delete material-icons ins-text-second float-right\">delete</i>\n        </div>\n        <b>{{item.sellingPrice}} x {{item.quantity}}</b>\n      </div>\n    </div>\n  </li>\n  <li class=\"float-left d-flex\">\n    <a routerLink=\"/checkout\">\n      <button class=\"btn ins-btn-outline-brand float-right\"  type=\"button\">Checkout</button>\n    </a>\n    <a routerLink=\"/cart\">\n      <button class=\"btn ins-btn-outline-brand float-right ml-2\" type=\"button\">View cart</button>\n    </a>\n  </li>\n</ul>"
+module.exports = "<ul class=\"list-unstyled ins-wapper-cart\">\n  <li *ngFor=\"let item of shoppingCart.items\" class=\" float-left mb-4\">\n    <div class=\"row\">\n      <div class=\"col-3\">\n        <a routerLink=\"/detail/{{item.productId}}\">\n          <img src=\"{{item.image}}\" alt=\"\">\n        </a>\n      </div>\n      <div class=\"col-9\">\n        <div>\n          <a class=\"ins-a-brand\" routerLink=\"/detail/{{item.productId}}\">{{item.title}}</a>\n          <i (click)=\"removeItem(item)\" class=\"ins-icon-delete material-icons ins-text-second float-right\">delete</i>\n        </div>\n        <b>{{item.sellingPrice}} x {{item.quantity}}</b>\n      </div>\n    </div>\n  </li>\n  <li class=\"float-left d-flex\">\n    <a routerLink=\"/checkout\">\n      <button class=\"btn ins-btn-outline-brand float-right\" [disabled]=\"shoppingCart.items_counted==0\"  type=\"button\">Checkout</button>\n    </a>\n    <a routerLink=\"/cart\">\n      <button class=\"btn ins-btn-outline-brand float-right ml-2\" [disabled]=\"shoppingCart.items_counted==0\" type=\"button\">View cart</button>\n    </a>\n  </li>\n</ul>"
 
 /***/ }),
 

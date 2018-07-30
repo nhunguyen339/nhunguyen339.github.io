@@ -145,7 +145,7 @@ module.exports = ".user-menu ul {\r\n  list-style: none;\r\n  padding-left: 0 ;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"currentUser\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-4 col-md-3\">\r\n        <h4 class=\" ins-bg-second text-white p-2 mb-3\">{{currentUser.first}} {{currentUser.last}}</h4>\r\n        <div class=\"user-menu\">\r\n          <ul>\r\n            <li>\r\n              <a class=\"ins-a-brand\" routerLinkActive=\"active\"\r\n              routerLink=\"./user-infor\">Thông tin tài khoản</a>\r\n            </li>\r\n            <li>\r\n              <a class=\"ins-a-brand\">Thông báo của tôi</a>\r\n            </li>\r\n            <li>\r\n              <a class=\"ins-a-brand\" routerLink=\"./order-manage\">Quản lí đơn hàng</a>\r\n            </li>\r\n            <li>\r\n              <a class=\"ins-a-brand\">Sổ địa chỉ</a>\r\n            </li>\r\n            <li>\r\n              <a class=\"ins-a-brand\">Thông tin thanh toán</a>\r\n            </li>\r\n            <li>\r\n              <a class=\"ins-a-brand\">Sản phẩm bạn đã xem</a>\r\n            </li>\r\n            <li>\r\n              <a class=\"ins-a-brand\">Hỏi đáp</a>\r\n            </li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-8 col-md-9\">\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div *ngIf=\"currentUser\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-4 col-md-3\">\r\n        <h4 class=\" ins-bg-second text-white p-2 mb-3\"><a routerLink=\"/homepage\" class=\"text-white\">Book mall</a></h4>\r\n        <div class=\"user-menu\">\r\n          <ul>\r\n            <li>\r\n              <a class=\"ins-a-brand\" routerLinkActive=\"active\"\r\n              routerLink=\"./user-infor\">Thông tin tài khoản</a>\r\n            </li>\r\n            <li>\r\n              <a class=\"ins-a-brand\">Thông báo của tôi</a>\r\n            </li>\r\n            <li>\r\n              <a class=\"ins-a-brand\" routerLink=\"./order-manage\">Quản lí đơn hàng</a>\r\n            </li>\r\n            <li>\r\n              <a class=\"ins-a-brand\">Sổ địa chỉ</a>\r\n            </li>\r\n            <li>\r\n              <a class=\"ins-a-brand\">Thông tin thanh toán</a>\r\n            </li>\r\n            <li>\r\n              <a class=\"ins-a-brand\">Sản phẩm bạn đã xem</a>\r\n            </li>\r\n            <li>\r\n              <a class=\"ins-a-brand\">Hỏi đáp</a>\r\n            </li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-8 col-md-9\">\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -419,7 +419,6 @@ var OrderManageComponent = /** @class */ (function () {
         this._book = new _models_cart_order__WEBPACK_IMPORTED_MODULE_5__["_Book"]();
         this._user = new _models_cart_order__WEBPACK_IMPORTED_MODULE_5__["_User"]();
         this.orderService.getOrders().subscribe(function (_) { return _this.orders = _; });
-        console.log();
     };
     OrderManageComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
