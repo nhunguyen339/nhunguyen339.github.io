@@ -2004,7 +2004,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".ins-img-single {\r\n  position: relative;\r\n}\r\n.ins-img-single div {\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n}\r\n.ins-nav-category {\r\n  font-size: 15px;\r\n  position: absolute;\r\n  z-index: 1000;\r\n  background: rgb(0, 0, 0, 0.7);\r\n  height: 100%;\r\n  padding: 10px;\r\n}\r\n.ins-nav-category  a {\r\n  color:  white;\r\n  \r\n}\r\n.ins-nav-category  a:hover {\r\n  color:  rgb(172, 147, 108);\r\n  background: transparent;\r\n\r\n}\r\n@media (max-width: 767.98px) {\r\n  .ins-nav-category {\r\n    display: none; \r\n  }\r\n}\r\n"
+module.exports = ".ins-img-single {\r\n  position: relative;\r\n}\r\n.ins-img-single div {\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n}\r\n.ins-nav-category {\r\n  font-size: 15px;\r\n  position: absolute;\r\n  z-index: 1000;\r\n  background: rgb(0, 0, 0, 0.7);\r\n  height: 100%;\r\n  padding: 10px;\r\n}\r\n.ins-nav-category  a {\r\n  color:  white;\r\n  \r\n}\r\n.ins-nav-category  a:hover {\r\n  color:  rgb(172, 147, 108);\r\n  background: transparent;\r\n\r\n}\r\n@media (max-width: 767.98px) {\r\n  .ins-nav-category {\r\n    display: none; \r\n  }\r\n}\r\n.ins-img-single .display-3 {\r\n  font-size: 6vmin;\r\n}"
 
 /***/ }),
 
@@ -2119,7 +2119,7 @@ module.exports = "  /* ins-list-item-2 */\r\n  .ins-list-item-2 img {\r\n    wid
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ins-list-item-2 ins-py d-flex justify-content-between\">\r\n    <a href=\"#\" >\r\n      <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459725/bookshop-angular/logo4.png\" alt=\"\">\r\n    </a>\r\n    <a href=\"#\" >\r\n      <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459721/bookshop-angular/logo3.png\" alt=\"\">\r\n    </a>\r\n    <a href=\"#\" >\r\n      <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459719/bookshop-angular/logo2.png\" alt=\"\">\r\n    </a>\r\n    <a href=\"#\" >\r\n      <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459718/bookshop-angular/logo1.png\" alt=\"\">\r\n    </a>\r\n</div>\r\n"
+module.exports = "<div class=\"ins-list-item-2 ins-py d-flex justify-content-between\">\r\n    <a>\r\n      <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459725/bookshop-angular/logo4.png\" alt=\"\">\r\n    </a>\r\n    <a >\r\n      <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459721/bookshop-angular/logo3.png\" alt=\"\">\r\n    </a>\r\n    <a >\r\n      <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459719/bookshop-angular/logo2.png\" alt=\"\">\r\n    </a>\r\n    <a  >\r\n      <img src=\"https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459718/bookshop-angular/logo1.png\" alt=\"\">\r\n    </a>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -3281,15 +3281,9 @@ var GenreService = /** @class */ (function () {
         return this.http.post(this.genresUrl, genre, httpOptions);
     };
     GenreService.prototype.deleteGenre = function (genre) {
-        //const id = typeof genre === "string" ? genre : genre._id;
-        //const id:string;
         var url = this.genresUrl + "/" + genre._id;
         return this.http.delete(url, httpOptions);
     };
-    // updateGenre(genre:Genre): Observable<any> {
-    //   // const url = `${this.genresUrl}/${genre._id}`;
-    //   return this.http.put(this.genresUrl, genre, httpOptions )
-    // }
     GenreService.prototype.updateGenre = function (genre) {
         var url = this.genresUrl + "/" + genre._id;
         return this.http.put(url, genre, httpOptions);
